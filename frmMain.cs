@@ -19,6 +19,8 @@ namespace Library
         private void frmMain_Load(object sender, EventArgs e)
         {
             WriteToStatus("Welcome to Librarian...", 5000);
+
+            OpenCatalog();
         }
 
         private void tsiCatalogList_Click(object sender, EventArgs e)
