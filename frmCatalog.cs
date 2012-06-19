@@ -21,5 +21,24 @@ namespace Library
             this.bookTA.FillWithRelations(this.librarianDS.book);
 
         }
+
+        private void frmCatalog_ResizeEnd(object sender, EventArgs e)
+        {
+            int columnsSize = 0;
+            foreach (DataGridViewColumn col in dgvCatalog.Columns)
+            {
+                columnsSize += col.Width;
+            }
+
+            if (dgvCatalog.Size.Width > columnsSize)
+            {
+                dgvCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else
+            {
+                dgvCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            }
+            ((frmMain)this.MdiParent).WriteToStatus("CW: " + columnsSize.ToString() + " | DGVW: " + dgvCatalog.Size.Width, 5000);
+        }
     }
 }

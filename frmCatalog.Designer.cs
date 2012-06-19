@@ -33,27 +33,24 @@
             this.grpEdit = new System.Windows.Forms.GroupBox();
             this.grpList = new System.Windows.Forms.GroupBox();
             this.dgvCatalog = new System.Windows.Forms.DataGridView();
-            this.librarianDS = new Library.LibrarianDS();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bookTA = new Library.LibrarianDSTableAdapters.bookTA();
             this.dgvTxtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtISBN10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTxtPublisherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTxtCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTxtTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtISBN13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.librarianDS = new Library.LibrarianDS();
+            this.bookTA = new Library.LibrarianDSTableAdapters.bookTA();
             ((System.ComponentModel.ISupportInitialize)(this.spcContainer)).BeginInit();
             this.spcContainer.Panel1.SuspendLayout();
             this.spcContainer.Panel2.SuspendLayout();
             this.spcContainer.SuspendLayout();
             this.grpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             this.SuspendLayout();
             // 
             // spcContainer
@@ -117,9 +114,6 @@
             this.dgvTxtTitle,
             this.dgvTxtAuthor,
             this.dgvTxtYear,
-            this.dgvTxtPublisherName,
-            this.dgvTxtCategoryName,
-            this.dgvTxtTypeName,
             this.dgvTxtStock,
             this.dgvTxtISBN13});
             this.dgvCatalog.DataSource = this.bookBindingSource;
@@ -131,20 +125,6 @@
             this.dgvCatalog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCatalog.Size = new System.Drawing.Size(682, 464);
             this.dgvCatalog.TabIndex = 0;
-            // 
-            // librarianDS
-            // 
-            this.librarianDS.DataSetName = "LibrarianDS";
-            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataMember = "book";
-            this.bookBindingSource.DataSource = this.librarianDS;
-            // 
-            // bookTA
-            // 
-            this.bookTA.ClearBeforeFill = true;
             // 
             // dgvTxtId
             // 
@@ -186,30 +166,6 @@
             this.dgvTxtYear.ReadOnly = true;
             this.dgvTxtYear.Width = 66;
             // 
-            // dgvTxtPublisherName
-            // 
-            this.dgvTxtPublisherName.DataPropertyName = "publisher_name";
-            this.dgvTxtPublisherName.HeaderText = "Izdavač";
-            this.dgvTxtPublisherName.Name = "dgvTxtPublisherName";
-            this.dgvTxtPublisherName.ReadOnly = true;
-            this.dgvTxtPublisherName.Width = 70;
-            // 
-            // dgvTxtCategoryName
-            // 
-            this.dgvTxtCategoryName.DataPropertyName = "category_name";
-            this.dgvTxtCategoryName.HeaderText = "Kategorija";
-            this.dgvTxtCategoryName.Name = "dgvTxtCategoryName";
-            this.dgvTxtCategoryName.ReadOnly = true;
-            this.dgvTxtCategoryName.Width = 79;
-            // 
-            // dgvTxtTypeName
-            // 
-            this.dgvTxtTypeName.DataPropertyName = "type_name";
-            this.dgvTxtTypeName.HeaderText = "Tip";
-            this.dgvTxtTypeName.Name = "dgvTxtTypeName";
-            this.dgvTxtTypeName.ReadOnly = true;
-            this.dgvTxtTypeName.Width = 47;
-            // 
             // dgvTxtStock
             // 
             this.dgvTxtStock.DataPropertyName = "stock";
@@ -226,6 +182,20 @@
             this.dgvTxtISBN13.ReadOnly = true;
             this.dgvTxtISBN13.Width = 69;
             // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataMember = "book";
+            this.bookBindingSource.DataSource = this.librarianDS;
+            // 
+            // librarianDS
+            // 
+            this.librarianDS.DataSetName = "LibrarianDS";
+            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bookTA
+            // 
+            this.bookTA.ClearBeforeFill = true;
+            // 
             // frmCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,14 +205,15 @@
             this.Name = "frmCatalog";
             this.Text = "Katalog";
             this.Load += new System.EventHandler(this.frmCatalog_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmCatalog_ResizeEnd);
             this.spcContainer.Panel1.ResumeLayout(false);
             this.spcContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcContainer)).EndInit();
             this.spcContainer.ResumeLayout(false);
             this.grpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             this.ResumeLayout(false);
 
         }
