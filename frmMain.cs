@@ -74,5 +74,12 @@ namespace Library
             tmrClearStatus.Interval = duration;
             tmrClearStatus.Start();
         }
+
+        private void tmrClearStatus_Tick(object sender, EventArgs e)
+        {
+            // clean status and stop timer when time is up!
+            tslStatus.Text = "";
+            tmrClearStatus.Stop();
+        }
     }
 }

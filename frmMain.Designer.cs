@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.stsStatusBar = new System.Windows.Forms.StatusStrip();
+            this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.tsiFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsiFileSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUserAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,14 +41,13 @@
             this.tsiCatalog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogList = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsiCatalogSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiCatalogImport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogExport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiRent = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiRentList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tmrClearStatus = new System.Windows.Forms.Timer(this.components);
             this.stsStatusBar.SuspendLayout();
             this.mnuMain.SuspendLayout();
@@ -62,6 +62,11 @@
             this.stsStatusBar.Size = new System.Drawing.Size(1186, 22);
             this.stsStatusBar.TabIndex = 1;
             this.stsStatusBar.Text = "statusStrip1";
+            // 
+            // tslStatus
+            // 
+            this.tslStatus.Name = "tslStatus";
+            this.tslStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // mnuMain
             // 
@@ -80,16 +85,16 @@
             // tsiFile
             // 
             this.tsiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
+            this.tsiFileSep1,
             this.tsiFileExit});
             this.tsiFile.Name = "tsiFile";
             this.tsiFile.Size = new System.Drawing.Size(66, 20);
             this.tsiFile.Text = "Datoteka";
             // 
-            // toolStripMenuItem1
+            // tsiFileSep1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.tsiFileSep1.Name = "tsiFileSep1";
+            this.tsiFileSep1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsiFileExit
             // 
@@ -109,13 +114,13 @@
             // tsiUserAdd
             // 
             this.tsiUserAdd.Name = "tsiUserAdd";
-            this.tsiUserAdd.Size = new System.Drawing.Size(130, 22);
+            this.tsiUserAdd.Size = new System.Drawing.Size(152, 22);
             this.tsiUserAdd.Text = "Dodaj";
             // 
             // tsiUserEdit
             // 
             this.tsiUserEdit.Name = "tsiUserEdit";
-            this.tsiUserEdit.Size = new System.Drawing.Size(130, 22);
+            this.tsiUserEdit.Size = new System.Drawing.Size(152, 22);
             this.tsiUserEdit.Text = "Uređivanje";
             // 
             // tsiCatalog
@@ -123,7 +128,7 @@
             this.tsiCatalog.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCatalogAdd,
             this.tsiCatalogList,
-            this.toolStripMenuItem2,
+            this.tsiCatalogSep1,
             this.tsiCatalogImport,
             this.tsiCatalogExport});
             this.tsiCatalog.Name = "tsiCatalog";
@@ -143,10 +148,10 @@
             this.tsiCatalogList.Text = "Prikaži";
             this.tsiCatalogList.Click += new System.EventHandler(this.tsiCatalogList_Click);
             // 
-            // toolStripMenuItem2
+            // tsiCatalogSep1
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.tsiCatalogSep1.Name = "tsiCatalogSep1";
+            this.tsiCatalogSep1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsiCatalogImport
             // 
@@ -188,10 +193,9 @@
             this.tsiHelpAbout.Size = new System.Drawing.Size(139, 22);
             this.tsiHelpAbout.Text = "O programu";
             // 
-            // tslStatus
+            // tmrClearStatus
             // 
-            this.tslStatus.Name = "tslStatus";
-            this.tslStatus.Size = new System.Drawing.Size(0, 17);
+            this.tmrClearStatus.Tick += new System.EventHandler(this.tmrClearStatus_Tick);
             // 
             // frmMain
             // 
@@ -219,7 +223,7 @@
         private System.Windows.Forms.StatusStrip stsStatusBar;
         private System.Windows.Forms.MenuStrip mnuMain;
         private System.Windows.Forms.ToolStripMenuItem tsiFile;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator tsiFileSep1;
         private System.Windows.Forms.ToolStripMenuItem tsiFileExit;
         private System.Windows.Forms.ToolStripMenuItem tsiUser;
         private System.Windows.Forms.ToolStripMenuItem tsiUserAdd;
@@ -227,7 +231,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiCatalog;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogAdd;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogList;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator tsiCatalogSep1;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogImport;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogExport;
         private System.Windows.Forms.ToolStripMenuItem tsiRent;
