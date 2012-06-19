@@ -72,6 +72,10 @@
             this.categoryTA = new Library.LibrarianDSTableAdapters.categoryTA();
             this.txtISBN13 = new System.Windows.Forms.TextBox();
             this.lblISBN13 = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnRent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.spcContainer)).BeginInit();
             this.spcContainer.Panel1.SuspendLayout();
             this.spcContainer.Panel2.SuspendLayout();
@@ -109,6 +113,10 @@
             this.grpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpEdit.Controls.Add(this.btnRent);
+            this.grpEdit.Controls.Add(this.btnAdd);
+            this.grpEdit.Controls.Add(this.btnEdit);
+            this.grpEdit.Controls.Add(this.btnRemove);
             this.grpEdit.Controls.Add(this.txtISBN13);
             this.grpEdit.Controls.Add(this.lblISBN13);
             this.grpEdit.Controls.Add(this.cmbCategory);
@@ -507,6 +515,42 @@
             this.lblISBN13.TabIndex = 18;
             this.lblISBN13.Text = "ISBN13";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(251, 465);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(99, 45);
+            this.btnRemove.TabIndex = 20;
+            this.btnRemove.Text = "Obriši";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(146, 466);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(99, 45);
+            this.btnEdit.TabIndex = 21;
+            this.btnEdit.Text = "Uredi";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(41, 465);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 45);
+            this.btnAdd.TabIndex = 22;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnRent
+            // 
+            this.btnRent.Location = new System.Drawing.Point(251, 414);
+            this.btnRent.Name = "btnRent";
+            this.btnRent.Size = new System.Drawing.Size(99, 45);
+            this.btnRent.TabIndex = 23;
+            this.btnRent.Text = "Posudi";
+            this.btnRent.UseVisualStyleBackColor = true;
+            // 
             // frmCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,5 +624,9 @@
         private LibrarianDSTableAdapters.categoryTA categoryTA;
         private System.Windows.Forms.TextBox txtISBN13;
         private System.Windows.Forms.Label lblISBN13;
+        private System.Windows.Forms.Button btnRent;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
