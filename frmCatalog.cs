@@ -22,8 +22,17 @@ namespace Library
 
         }
 
-        private void frmCatalog_ResizeEnd(object sender, EventArgs e)
+        private void dgvCatalog_Resize(object sender, EventArgs e)
         {
+            AdjustCatalogColumnsSize();
+        }
+
+        /*
+         * Change AutoSizeColumnMode if DGV is bigget than size of columns
+         */
+        private void AdjustCatalogColumnsSize()
+        {
+
             int columnsSize = 0;
             foreach (DataGridViewColumn col in dgvCatalog.Columns)
             {
@@ -38,7 +47,6 @@ namespace Library
             {
                 dgvCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             }
-            ((frmMain)this.MdiParent).WriteToStatus("CW: " + columnsSize.ToString() + " | DGVW: " + dgvCatalog.Size.Width, 5000);
         }
     }
 }

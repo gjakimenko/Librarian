@@ -38,7 +38,10 @@
             this.dgvTxtTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtPublisherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtISBN13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.librarianDS = new Library.LibrarianDS();
@@ -99,6 +102,7 @@
             // 
             this.dgvCatalog.AllowUserToAddRows = false;
             this.dgvCatalog.AllowUserToDeleteRows = false;
+            this.dgvCatalog.AllowUserToOrderColumns = true;
             this.dgvCatalog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -114,7 +118,10 @@
             this.dgvTxtTitle,
             this.dgvTxtAuthor,
             this.dgvTxtYear,
+            this.dgvTxtPublisherName,
             this.dgvTxtStock,
+            this.dgvTxtTypeName,
+            this.dgvTxtCategoryName,
             this.dgvTxtISBN13});
             this.dgvCatalog.DataSource = this.bookBindingSource;
             this.dgvCatalog.Location = new System.Drawing.Point(6, 47);
@@ -125,6 +132,7 @@
             this.dgvCatalog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCatalog.Size = new System.Drawing.Size(682, 464);
             this.dgvCatalog.TabIndex = 0;
+            this.dgvCatalog.Resize += new System.EventHandler(this.dgvCatalog_Resize);
             // 
             // dgvTxtId
             // 
@@ -133,6 +141,7 @@
             this.dgvTxtId.Name = "dgvTxtId";
             this.dgvTxtId.ReadOnly = true;
             this.dgvTxtId.Visible = false;
+            this.dgvTxtId.Width = 43;
             // 
             // dgvTxtISBN10
             // 
@@ -166,6 +175,14 @@
             this.dgvTxtYear.ReadOnly = true;
             this.dgvTxtYear.Width = 66;
             // 
+            // dgvTxtPublisherName
+            // 
+            this.dgvTxtPublisherName.DataPropertyName = "publisher_name";
+            this.dgvTxtPublisherName.HeaderText = "Izdavač";
+            this.dgvTxtPublisherName.Name = "dgvTxtPublisherName";
+            this.dgvTxtPublisherName.ReadOnly = true;
+            this.dgvTxtPublisherName.Width = 70;
+            // 
             // dgvTxtStock
             // 
             this.dgvTxtStock.DataPropertyName = "stock";
@@ -173,6 +190,22 @@
             this.dgvTxtStock.Name = "dgvTxtStock";
             this.dgvTxtStock.ReadOnly = true;
             this.dgvTxtStock.Width = 71;
+            // 
+            // dgvTxtTypeName
+            // 
+            this.dgvTxtTypeName.DataPropertyName = "type_name";
+            this.dgvTxtTypeName.HeaderText = "Tip";
+            this.dgvTxtTypeName.Name = "dgvTxtTypeName";
+            this.dgvTxtTypeName.ReadOnly = true;
+            this.dgvTxtTypeName.Width = 47;
+            // 
+            // dgvTxtCategoryName
+            // 
+            this.dgvTxtCategoryName.DataPropertyName = "category_name";
+            this.dgvTxtCategoryName.HeaderText = "Kategorija";
+            this.dgvTxtCategoryName.Name = "dgvTxtCategoryName";
+            this.dgvTxtCategoryName.ReadOnly = true;
+            this.dgvTxtCategoryName.Width = 79;
             // 
             // dgvTxtISBN13
             // 
@@ -205,7 +238,6 @@
             this.Name = "frmCatalog";
             this.Text = "Katalog";
             this.Load += new System.EventHandler(this.frmCatalog_Load);
-            this.ResizeEnd += new System.EventHandler(this.frmCatalog_ResizeEnd);
             this.spcContainer.Panel1.ResumeLayout(false);
             this.spcContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcContainer)).EndInit();
@@ -233,9 +265,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtAuthor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtPublisherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtCategoryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtCategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtISBN13;
     }
 }
