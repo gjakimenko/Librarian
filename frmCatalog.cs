@@ -18,9 +18,7 @@ namespace Library
 
         private void frmCatalog_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'librarianDS.category' table. You can move, or remove it, as needed.
             this.categoryTA.Fill(this.librarianDS.category);
-            // TODO: This line of code loads data into the 'librarianDS.type' table. You can move, or remove it, as needed.
             this.typeTA.Fill(this.librarianDS.type);
             this.publisherTA.Fill(this.librarianDS.publisher);
             this.bookTA.FillWithRelations(this.librarianDS.book);
@@ -29,6 +27,33 @@ namespace Library
         private void dgvCatalog_Resize(object sender, EventArgs e)
         {
             AdjustCatalogColumnsSize();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            // fetch currently selected book and open for editing
+            UpdateBook(getSelectedBook().id);
+        }
+
+        /*
+         * Opens form for editing books
+         */
+        public void UpdateBook(int bookId)
+        {
+            frmBookUpdate FrmBookUpdate = new frmBookUpdate(bookId);
+            FrmBookUpdate.MdiParent = this.MdiParent;
+            FrmBookUpdate.Show();
+        }
+
+        /*
+         * Returns currently selected book in DataGridView
+         */
+        private LibrarianDS.bookRow getSelectedBook()
+        {
+            DataRowView current = (DataRowView)dgvCatalog.CurrentRow.DataBoundItem;
+            LibrarianDS.bookRow selectedBook = (LibrarianDS.bookRow)current.Row;
+
+            return selectedBook;
         }
 
         /*
