@@ -15,5 +15,11 @@ namespace Library
         {
             InitializeComponent();
         }
+
+        private void frmCatalog_Load(object sender, EventArgs e)
+        {
+            this.bookTA.FillWithRelations(this.librarianDS.book);
+
+        }
     }
 }
