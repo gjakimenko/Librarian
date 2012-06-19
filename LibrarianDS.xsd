@@ -100,7 +100,22 @@ SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, ca
               <Mapping SourceColumn="publisher_id" DataSetColumn="publisher_id" />
               <Mapping SourceColumn="category_id" DataSetColumn="category_id" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="LibrarianCS (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillWithRelations" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataWithRelations" GeneratorSourceName="FillWithRelations" GetMethodModifier="Public" GetMethodName="GetDataWithRelations" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataWithRelations" UserSourceName="FillWithRelations">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
+                         tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
+                         tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
+FROM            tbl_book LEFT OUTER JOIN
+                         tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
+                         tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
+                         tbl_type ON tbl_book.type_id = tbl_type.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="categoryTA" GeneratorDataComponentClassName="categoryTA" Name="category" UserDataComponentName="categoryTA">
             <MainSource>
