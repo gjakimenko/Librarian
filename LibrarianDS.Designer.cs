@@ -3632,7 +3632,7 @@ SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, ca
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, cat" +
@@ -3640,14 +3640,20 @@ SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, ca
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
+            this._commandCollection[1].CommandText = "SELECT        id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_" +
+                "id, category_id\r\nFROM            tbl_book\r\nWHERE        (id = @id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
                          tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
                          tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
 FROM            tbl_book LEFT OUTER JOIN
                          tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
                          tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
                          tbl_type ON tbl_book.type_id = tbl_type.id";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3678,8 +3684,34 @@ FROM            tbl_book LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillWithRelations(LibrarianDS.bookDataTable dataTable) {
+        public virtual int FillById(LibrarianDS.bookDataTable dataTable, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LibrarianDS.bookDataTable GetDataById(int id) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
+            LibrarianDS.bookDataTable dataTable = new LibrarianDS.bookDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillWithRelations(LibrarianDS.bookDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -3692,7 +3724,7 @@ FROM            tbl_book LEFT OUTER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LibrarianDS.bookDataTable GetDataWithRelations() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             LibrarianDS.bookDataTable dataTable = new LibrarianDS.bookDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

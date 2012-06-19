@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpEdit = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.txtISBN13 = new System.Windows.Forms.TextBox();
@@ -49,9 +51,22 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtISBN10 = new System.Windows.Forms.TextBox();
             this.lblISBN10 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.librarianDS = new Library.LibrarianDS();
+            this.bookBS = new System.Windows.Forms.BindingSource(this.components);
+            this.bookTA = new Library.LibrarianDSTableAdapters.bookTA();
+            this.publisherBS = new System.Windows.Forms.BindingSource(this.components);
+            this.publisherTA = new Library.LibrarianDSTableAdapters.publisherTA();
+            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
+            this.typeTA = new Library.LibrarianDSTableAdapters.typeTA();
+            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTA = new Library.LibrarianDSTableAdapters.categoryTA();
             this.grpEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).BeginInit();
             this.SuspendLayout();
             // 
             // grpEdit
@@ -87,6 +102,18 @@
             this.grpEdit.TabStop = false;
             this.grpEdit.Text = "Uredi";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(129, 256);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(101, 45);
+            this.btnCancel.TabIndex = 22;
+            this.btnCancel.Text = "Odustani";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -111,6 +138,7 @@
             // 
             this.txtISBN13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtISBN13.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN13", true));
             this.txtISBN13.Location = new System.Drawing.Point(129, 228);
             this.txtISBN13.Name = "txtISBN13";
             this.txtISBN13.Size = new System.Drawing.Size(386, 20);
@@ -129,6 +157,8 @@
             // 
             this.cmbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "category_id", true));
+            this.cmbCategory.DataSource = this.categoryBS;
             this.cmbCategory.DisplayMember = "name";
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(129, 201);
@@ -150,6 +180,8 @@
             // 
             this.cmbType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "type_id", true));
+            this.cmbType.DataSource = this.typeBS;
             this.cmbType.DisplayMember = "name";
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(129, 174);
@@ -179,6 +211,7 @@
             // nupStock
             // 
             this.nupStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nupStock.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bookBS, "stock", true));
             this.nupStock.Location = new System.Drawing.Point(414, 148);
             this.nupStock.Name = "nupStock";
             this.nupStock.Size = new System.Drawing.Size(100, 20);
@@ -197,6 +230,8 @@
             // 
             this.cmbPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPublisher.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "publisher_id", true));
+            this.cmbPublisher.DataSource = this.publisherBS;
             this.cmbPublisher.DisplayMember = "name";
             this.cmbPublisher.FormattingEnabled = true;
             this.cmbPublisher.Location = new System.Drawing.Point(129, 121);
@@ -217,6 +252,7 @@
             // mtbYear
             // 
             this.mtbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtbYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "year", true));
             this.mtbYear.Location = new System.Drawing.Point(415, 95);
             this.mtbYear.Mask = "0000";
             this.mtbYear.Name = "mtbYear";
@@ -227,6 +263,7 @@
             // 
             this.txtAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuthor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "author", true));
             this.txtAuthor.Location = new System.Drawing.Point(129, 69);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(386, 20);
@@ -245,6 +282,7 @@
             // 
             this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "title", true));
             this.txtTitle.Location = new System.Drawing.Point(129, 43);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(386, 20);
@@ -263,6 +301,7 @@
             // 
             this.txtISBN10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtISBN10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN10", true));
             this.txtISBN10.Location = new System.Drawing.Point(129, 17);
             this.txtISBN10.Name = "txtISBN10";
             this.txtISBN10.Size = new System.Drawing.Size(386, 20);
@@ -277,17 +316,46 @@
             this.lblISBN10.TabIndex = 0;
             this.lblISBN10.Text = "ISBN10";
             // 
-            // btnCancel
+            // librarianDS
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(129, 256);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 45);
-            this.btnCancel.TabIndex = 22;
-            this.btnCancel.Text = "Odustani";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.librarianDS.DataSetName = "LibrarianDS";
+            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bookBS
+            // 
+            this.bookBS.DataMember = "book";
+            this.bookBS.DataSource = this.librarianDS;
+            // 
+            // bookTA
+            // 
+            this.bookTA.ClearBeforeFill = true;
+            // 
+            // publisherBS
+            // 
+            this.publisherBS.DataMember = "publisher";
+            this.publisherBS.DataSource = this.librarianDS;
+            // 
+            // publisherTA
+            // 
+            this.publisherTA.ClearBeforeFill = true;
+            // 
+            // typeBS
+            // 
+            this.typeBS.DataMember = "type";
+            this.typeBS.DataSource = this.librarianDS;
+            // 
+            // typeTA
+            // 
+            this.typeTA.ClearBeforeFill = true;
+            // 
+            // categoryBS
+            // 
+            this.categoryBS.DataMember = "category";
+            this.categoryBS.DataSource = this.librarianDS;
+            // 
+            // categoryTA
+            // 
+            this.categoryTA.ClearBeforeFill = true;
             // 
             // frmBookUpdate
             // 
@@ -300,9 +368,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmBookUpdate";
             this.Text = "Uredi";
+            this.Load += new System.EventHandler(this.frmBookUpdate_Load);
             this.grpEdit.ResumeLayout(false);
             this.grpEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +405,14 @@
         private System.Windows.Forms.TextBox txtISBN10;
         private System.Windows.Forms.Label lblISBN10;
         private System.Windows.Forms.Button btnCancel;
+        private LibrarianDS librarianDS;
+        private System.Windows.Forms.BindingSource bookBS;
+        private LibrarianDSTableAdapters.bookTA bookTA;
+        private System.Windows.Forms.BindingSource publisherBS;
+        private LibrarianDSTableAdapters.publisherTA publisherTA;
+        private System.Windows.Forms.BindingSource typeBS;
+        private LibrarianDSTableAdapters.typeTA typeTA;
+        private System.Windows.Forms.BindingSource categoryBS;
+        private LibrarianDSTableAdapters.categoryTA categoryTA;
     }
 }
