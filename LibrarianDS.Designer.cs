@@ -5781,11 +5781,17 @@ SELECT id, name, surname, email, phone, address FROM tbl_user WHERE (id = @id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, name, surname, email, phone, address FROM dbo.tbl_user";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        id, name, surname, email, phone, address\r\nFROM            tbl_user\r" +
+                "\nWHERE        (name + \' \' + surname LIKE @searchString)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5807,6 +5813,42 @@ SELECT id, name, surname, email, phone, address FROM tbl_user WHERE (id = @id)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual LibrarianDS.userDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            LibrarianDS.userDataTable dataTable = new LibrarianDS.userDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SearchByFullName(LibrarianDS.userDataTable dataTable, string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LibrarianDS.userDataTable SearchDataByFullName(string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
             LibrarianDS.userDataTable dataTable = new LibrarianDS.userDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

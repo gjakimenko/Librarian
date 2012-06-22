@@ -71,5 +71,13 @@ namespace Library
             // Return true if strIn is in valid e-mail format.
             return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            // generate string complient with sql LIKE operator
+            string searchString = "%" + txtSearch.Text.Replace(" ", "%") + "%";
+            this.userTA.SearchByFullName(this.librarianDS.user, searchString);
+            dgvUsers.Refresh();
+        }
     }
 }
