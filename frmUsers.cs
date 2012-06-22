@@ -30,6 +30,18 @@ namespace Library
             this.userBS.EndEdit();
             this.userTA.Update(librarianDS);
             dgvUsers.Refresh();
+            btnAdd.Enabled = true;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.userBS.AddNew();
+            btnAdd.Enabled = false;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            this.userBS.RemoveCurrent();
         }
 
     }
