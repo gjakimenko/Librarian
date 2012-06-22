@@ -44,6 +44,7 @@ namespace Library
             {
                 this.Text = "Dodaj: " + txtTitle.Text;
                 this.grpEdit.Text = "Dodaj:";
+                this.btnEdit.Text = "Dodaj";
             }
         }
 

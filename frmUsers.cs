@@ -22,6 +22,15 @@ namespace Library
             this.userTA.Fill(this.librarianDS.user);
 
         }
+        /*
+         * Edit user row in database
+         */
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.userBS.EndEdit();
+            this.userTA.Update(librarianDS);
+            dgvUsers.Refresh();
+        }
 
     }
 }

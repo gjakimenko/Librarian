@@ -35,6 +35,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.userBS = new System.Windows.Forms.BindingSource(this.components);
+            this.librarianDS = new Library.LibrarianDS();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
@@ -49,25 +51,23 @@
             this.grpList = new System.Windows.Forms.GroupBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userBS = new System.Windows.Forms.BindingSource(this.components);
-            this.librarianDS = new Library.LibrarianDS();
-            this.userTA = new Library.LibrarianDSTableAdapters.userTA();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.dgvTxtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userTA = new Library.LibrarianDSTableAdapters.userTA();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.grpEdit.SuspendLayout();
-            this.grpList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
+            this.grpList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -133,6 +133,7 @@
             this.btnEdit.TabIndex = 24;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnRemove
             // 
@@ -153,6 +154,16 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(210, 20);
             this.txtAddress.TabIndex = 11;
+            // 
+            // userBS
+            // 
+            this.userBS.DataMember = "user";
+            this.userBS.DataSource = this.librarianDS;
+            // 
+            // librarianDS
+            // 
+            this.librarianDS.DataSetName = "LibrarianDS";
+            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtPhone
             // 
@@ -266,7 +277,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.grpList.Controls.Add(this.lblSearch);
             this.grpList.Controls.Add(this.txtSearch);
-            this.grpList.Controls.Add(this.dataGridView1);
+            this.grpList.Controls.Add(this.dgvUsers);
             this.grpList.Location = new System.Drawing.Point(8, 12);
             this.grpList.Name = "grpList";
             this.grpList.Size = new System.Drawing.Size(561, 413);
@@ -292,49 +303,35 @@
             this.txtSearch.Size = new System.Drawing.Size(270, 20);
             this.txtSearch.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUsers.AutoGenerateColumns = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTxtID,
             this.dgvTxtName,
             this.dgvTxtSurname,
             this.dgvTxtEmail,
             this.dgvTxtPhone,
             this.dgvTxtAddress});
-            this.dataGridView1.DataSource = this.userBS;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 45);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 362);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // userBS
-            // 
-            this.userBS.DataMember = "user";
-            this.userBS.DataSource = this.librarianDS;
-            // 
-            // librarianDS
-            // 
-            this.librarianDS.DataSetName = "LibrarianDS";
-            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userTA
-            // 
-            this.userTA.ClearBeforeFill = true;
+            this.dgvUsers.DataSource = this.userBS;
+            this.dgvUsers.Location = new System.Drawing.Point(6, 45);
+            this.dgvUsers.MultiSelect = false;
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsers.Size = new System.Drawing.Size(549, 362);
+            this.dgvUsers.TabIndex = 0;
             // 
             // dgvTxtID
             // 
@@ -378,6 +375,10 @@
             this.dgvTxtAddress.Name = "dgvTxtAddress";
             this.dgvTxtAddress.ReadOnly = true;
             // 
+            // userTA
+            // 
+            this.userTA.ClearBeforeFill = true;
+            // 
             // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,11 +395,11 @@
             this.splitContainer1.ResumeLayout(false);
             this.grpEdit.ResumeLayout(false);
             this.grpEdit.PerformLayout();
-            this.grpList.ResumeLayout(false);
-            this.grpList.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
+            this.grpList.ResumeLayout(false);
+            this.grpList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -408,7 +409,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox grpList;
         private System.Windows.Forms.GroupBox grpEdit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.TextBox txtSearch;
         private LibrarianDS librarianDS;
         private System.Windows.Forms.BindingSource userBS;
