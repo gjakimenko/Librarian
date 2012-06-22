@@ -32,17 +32,21 @@
             this.grpEdit = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.txtISBN13 = new System.Windows.Forms.TextBox();
+            this.bookBS = new System.Windows.Forms.BindingSource(this.components);
+            this.librarianDS = new Library.LibrarianDS();
             this.lblISBN13 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblCategory = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
+            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblType = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
             this.nupStock = new System.Windows.Forms.NumericUpDown();
             this.lblPublisher = new System.Windows.Forms.Label();
             this.cmbPublisher = new System.Windows.Forms.ComboBox();
+            this.publisherBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblYear = new System.Windows.Forms.Label();
             this.mtbYear = new System.Windows.Forms.MaskedTextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
@@ -51,22 +55,17 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtISBN10 = new System.Windows.Forms.TextBox();
             this.lblISBN10 = new System.Windows.Forms.Label();
-            this.librarianDS = new Library.LibrarianDS();
-            this.bookBS = new System.Windows.Forms.BindingSource(this.components);
             this.bookTA = new Library.LibrarianDSTableAdapters.bookTA();
-            this.publisherBS = new System.Windows.Forms.BindingSource(this.components);
             this.publisherTA = new Library.LibrarianDSTableAdapters.publisherTA();
-            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
             this.typeTA = new Library.LibrarianDSTableAdapters.typeTA();
-            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTA = new Library.LibrarianDSTableAdapters.categoryTA();
             this.grpEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).BeginInit();
             this.SuspendLayout();
             // 
             // grpEdit
@@ -76,7 +75,6 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.grpEdit.Controls.Add(this.btnCancel);
             this.grpEdit.Controls.Add(this.btnEdit);
-            this.grpEdit.Controls.Add(this.btnRemove);
             this.grpEdit.Controls.Add(this.txtISBN13);
             this.grpEdit.Controls.Add(this.lblISBN13);
             this.grpEdit.Controls.Add(this.cmbCategory);
@@ -106,7 +104,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(129, 256);
+            this.btnCancel.Location = new System.Drawing.Point(306, 256);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(101, 45);
             this.btnCancel.TabIndex = 22;
@@ -123,16 +121,7 @@
             this.btnEdit.TabIndex = 21;
             this.btnEdit.Text = "Uredi";
             this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Location = new System.Drawing.Point(306, 256);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(101, 45);
-            this.btnRemove.TabIndex = 20;
-            this.btnRemove.Text = "Obriši";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtISBN13
             // 
@@ -143,6 +132,16 @@
             this.txtISBN13.Name = "txtISBN13";
             this.txtISBN13.Size = new System.Drawing.Size(386, 20);
             this.txtISBN13.TabIndex = 19;
+            // 
+            // bookBS
+            // 
+            this.bookBS.DataMember = "book";
+            this.bookBS.DataSource = this.librarianDS;
+            // 
+            // librarianDS
+            // 
+            this.librarianDS.DataSetName = "LibrarianDS";
+            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblISBN13
             // 
@@ -167,6 +166,11 @@
             this.cmbCategory.TabIndex = 17;
             this.cmbCategory.ValueMember = "id";
             // 
+            // categoryBS
+            // 
+            this.categoryBS.DataMember = "category";
+            this.categoryBS.DataSource = this.librarianDS;
+            // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
@@ -189,6 +193,11 @@
             this.cmbType.Size = new System.Drawing.Size(386, 21);
             this.cmbType.TabIndex = 15;
             this.cmbType.ValueMember = "id";
+            // 
+            // typeBS
+            // 
+            this.typeBS.DataMember = "type";
+            this.typeBS.DataSource = this.librarianDS;
             // 
             // lblType
             // 
@@ -239,6 +248,11 @@
             this.cmbPublisher.Size = new System.Drawing.Size(386, 21);
             this.cmbPublisher.TabIndex = 8;
             this.cmbPublisher.ValueMember = "id";
+            // 
+            // publisherBS
+            // 
+            this.publisherBS.DataMember = "publisher";
+            this.publisherBS.DataSource = this.librarianDS;
             // 
             // lblYear
             // 
@@ -316,42 +330,17 @@
             this.lblISBN10.TabIndex = 0;
             this.lblISBN10.Text = "ISBN10";
             // 
-            // librarianDS
-            // 
-            this.librarianDS.DataSetName = "LibrarianDS";
-            this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bookBS
-            // 
-            this.bookBS.DataMember = "book";
-            this.bookBS.DataSource = this.librarianDS;
-            // 
             // bookTA
             // 
             this.bookTA.ClearBeforeFill = true;
-            // 
-            // publisherBS
-            // 
-            this.publisherBS.DataMember = "publisher";
-            this.publisherBS.DataSource = this.librarianDS;
             // 
             // publisherTA
             // 
             this.publisherTA.ClearBeforeFill = true;
             // 
-            // typeBS
-            // 
-            this.typeBS.DataMember = "type";
-            this.typeBS.DataSource = this.librarianDS;
-            // 
             // typeTA
             // 
             this.typeTA.ClearBeforeFill = true;
-            // 
-            // categoryBS
-            // 
-            this.categoryBS.DataMember = "category";
-            this.categoryBS.DataSource = this.librarianDS;
             // 
             // categoryTA
             // 
@@ -368,15 +357,16 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmBookUpdate";
             this.Text = "Uredi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBookUpdate_FormClosed);
             this.Load += new System.EventHandler(this.frmBookUpdate_Load);
             this.grpEdit.ResumeLayout(false);
             this.grpEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,7 +375,6 @@
 
         private System.Windows.Forms.GroupBox grpEdit;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.TextBox txtISBN13;
         private System.Windows.Forms.Label lblISBN13;
         private System.Windows.Forms.ComboBox cmbCategory;

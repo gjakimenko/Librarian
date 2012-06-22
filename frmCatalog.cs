@@ -31,7 +31,7 @@ namespace Library
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // fetch currently selected book and open for editing
+            // Fetch currently selected book and open for editing
             UpdateBook(getSelectedBook().id);
         }
 
@@ -41,6 +41,16 @@ namespace Library
         public void UpdateBook(int bookId)
         {
             frmBookUpdate FrmBookUpdate = new frmBookUpdate(bookId);
+            FrmBookUpdate.MdiParent = this.MdiParent;
+            FrmBookUpdate.Show();
+        }
+
+        /*
+         * Opens form adding new book
+         */
+        public void AddBook()
+        {
+            frmBookUpdate FrmBookUpdate = new frmBookUpdate();
             FrmBookUpdate.MdiParent = this.MdiParent;
             FrmBookUpdate.Show();
         }
@@ -76,6 +86,31 @@ namespace Library
             {
                 dgvCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             }
+        }
+        /*
+         * Function for DataGridView refresh
+         */
+        
+        public void catalogRefresh()
+        {
+            this.bookTA.Fill(this.librarianDS.book);
+            dgvCatalog.Refresh();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            this.bookBS.RemoveCurrent();
+            this.bookTA.Update(librarianDS.book);
+            // Calling function catalogRefresh
+            catalogRefresh();
+        }
+
+        /*
+         * Function for adding new book, function will generate error if some spaces are empty
+         */
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddBook();
         }
     }
 }

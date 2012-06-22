@@ -61,6 +61,20 @@ namespace Library
         }
 
         /*
+         * Open catalog form as child
+         */
+        private void addBook()
+        {
+            if (!focusForm("frmBookUpdate"))
+            {
+                frmBookUpdate FrmBookUpdate = new frmBookUpdate();
+                FrmBookUpdate.MdiParent = this;
+                FrmBookUpdate.StartPosition = FormStartPosition.CenterParent;
+                FrmBookUpdate.Show();
+            }
+        }
+
+        /*
          * Function for writing status messages on main window status bar
          */
         public void WriteToStatus(string text, int duration)
@@ -82,6 +96,11 @@ namespace Library
             // clean status and stop timer when time is up!
             tslStatus.Text = "";
             tmrClearStatus.Stop();
+        }
+
+        private void tsiCatalogAdd_Click(object sender, EventArgs e)
+        {
+            addBook();
         }
     }
 }

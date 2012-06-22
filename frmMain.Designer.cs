@@ -94,12 +94,12 @@
             // tsiFileSep1
             // 
             this.tsiFileSep1.Name = "tsiFileSep1";
-            this.tsiFileSep1.Size = new System.Drawing.Size(149, 6);
+            this.tsiFileSep1.Size = new System.Drawing.Size(93, 6);
             // 
             // tsiFileExit
             // 
             this.tsiFileExit.Name = "tsiFileExit";
-            this.tsiFileExit.Size = new System.Drawing.Size(152, 22);
+            this.tsiFileExit.Size = new System.Drawing.Size(96, 22);
             this.tsiFileExit.Text = "Izlaz";
             // 
             // tsiUser
@@ -139,13 +139,14 @@
             // 
             this.tsiCatalogAdd.Name = "tsiCatalogAdd";
             this.tsiCatalogAdd.Size = new System.Drawing.Size(152, 22);
-            this.tsiCatalogAdd.Text = "Dodaj";
+            this.tsiCatalogAdd.Text = "Dodaj knjigu";
+            this.tsiCatalogAdd.Click += new System.EventHandler(this.tsiCatalogAdd_Click);
             // 
             // tsiCatalogList
             // 
             this.tsiCatalogList.Name = "tsiCatalogList";
             this.tsiCatalogList.Size = new System.Drawing.Size(152, 22);
-            this.tsiCatalogList.Text = "Prikaži";
+            this.tsiCatalogList.Text = "Prikaži katalog";
             this.tsiCatalogList.Click += new System.EventHandler(this.tsiCatalogList_Click);
             // 
             // tsiCatalogSep1

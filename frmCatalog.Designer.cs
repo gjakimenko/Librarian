@@ -159,6 +159,7 @@
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -178,6 +179,7 @@
             this.btnRemove.TabIndex = 20;
             this.btnRemove.Text = "Obriši";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // txtISBN13
             // 
