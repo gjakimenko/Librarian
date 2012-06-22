@@ -389,7 +389,7 @@
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(951, 475);
             this.Name = "frmUsers";
-            this.Text = "Users";
+            this.Text = "Korisnici";
             this.Load += new System.EventHandler(this.Users_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
+
 
 namespace Library
 {
@@ -27,11 +30,19 @@ namespace Library
          */
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            this.userBS.EndEdit();
-            this.userTA.Update(librarianDS);
-            dgvUsers.Refresh();
-            btnAdd.Enabled = true;
-            ((frmMain)this.MdiParent).WriteToStatus("Korisnik ažuriran...", 5000);
+            //If mail isnt valid, program generates erorr message.
+            if (IsValidEmail(txtEmail.Text))
+            {
+                this.userBS.EndEdit();
+                this.userTA.Update(librarianDS);
+                dgvUsers.Refresh();
+                btnAdd.Enabled = true;
+                ((frmMain)this.MdiParent).WriteToStatus("Korisnik ažuriran...", 5000);
+            }
+            else
+            {
+                MessageBox.Show("E-mail adresa koju ste upisali nije ispravna!");
+            }
         }
         /*
          * Add user in database
@@ -52,6 +63,13 @@ namespace Library
             // Calling function from frmMain
             ((frmMain)this.MdiParent).WriteToStatus("Korisnik obrisan...", 5000);
         }
-
+        /*
+         * Method for mail validation
+         */
+        public bool IsValidEmail(string strIn)
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        }
     }
 }
