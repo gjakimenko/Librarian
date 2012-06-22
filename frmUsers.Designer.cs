@@ -50,15 +50,15 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBS = new System.Windows.Forms.BindingSource(this.components);
             this.librarianDS = new Library.LibrarianDS();
             this.userTA = new Library.LibrarianDSTableAdapters.userTA();
+            this.dgvTxtID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.grpEdit.SuspendLayout();
             this.grpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +148,7 @@
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "address", true));
             this.txtAddress.Location = new System.Drawing.Point(119, 149);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(210, 20);
@@ -157,6 +158,7 @@
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "phone", true));
             this.txtPhone.Location = new System.Drawing.Point(119, 123);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(210, 20);
@@ -166,6 +168,7 @@
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "email", true));
             this.txtEmail.Location = new System.Drawing.Point(119, 97);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(210, 20);
@@ -175,6 +178,7 @@
             // 
             this.txtSurname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSurname.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "surname", true));
             this.txtSurname.Location = new System.Drawing.Point(119, 71);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(210, 20);
@@ -184,6 +188,7 @@
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "name", true));
             this.txtName.Location = new System.Drawing.Point(119, 45);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(210, 20);
@@ -238,8 +243,10 @@
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBS, "id", true));
             this.txtID.Location = new System.Drawing.Point(119, 19);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(136, 20);
             this.txtID.TabIndex = 1;
             // 
@@ -293,71 +300,32 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.userBindingSource;
+            this.dgvTxtID,
+            this.dgvTxtName,
+            this.dgvTxtSurname,
+            this.dgvTxtEmail,
+            this.dgvTxtPhone,
+            this.dgvTxtAddress});
+            this.dataGridView1.DataSource = this.userBS;
             this.dataGridView1.Location = new System.Drawing.Point(6, 45);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(549, 362);
             this.dataGridView1.TabIndex = 0;
             // 
-            // idDataGridViewTextBoxColumn
+            // userBS
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "surname";
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataMember = "user";
-            this.userBindingSource.DataSource = this.librarianDS;
+            this.userBS.DataMember = "user";
+            this.userBS.DataSource = this.librarianDS;
             // 
             // librarianDS
             // 
@@ -367,6 +335,48 @@
             // userTA
             // 
             this.userTA.ClearBeforeFill = true;
+            // 
+            // dgvTxtID
+            // 
+            this.dgvTxtID.DataPropertyName = "id";
+            this.dgvTxtID.HeaderText = "Članski broj";
+            this.dgvTxtID.Name = "dgvTxtID";
+            this.dgvTxtID.ReadOnly = true;
+            // 
+            // dgvTxtName
+            // 
+            this.dgvTxtName.DataPropertyName = "name";
+            this.dgvTxtName.HeaderText = "Ime";
+            this.dgvTxtName.Name = "dgvTxtName";
+            this.dgvTxtName.ReadOnly = true;
+            // 
+            // dgvTxtSurname
+            // 
+            this.dgvTxtSurname.DataPropertyName = "surname";
+            this.dgvTxtSurname.HeaderText = "Prezime";
+            this.dgvTxtSurname.Name = "dgvTxtSurname";
+            this.dgvTxtSurname.ReadOnly = true;
+            // 
+            // dgvTxtEmail
+            // 
+            this.dgvTxtEmail.DataPropertyName = "email";
+            this.dgvTxtEmail.HeaderText = "Email";
+            this.dgvTxtEmail.Name = "dgvTxtEmail";
+            this.dgvTxtEmail.ReadOnly = true;
+            // 
+            // dgvTxtPhone
+            // 
+            this.dgvTxtPhone.DataPropertyName = "phone";
+            this.dgvTxtPhone.HeaderText = "Telefon";
+            this.dgvTxtPhone.Name = "dgvTxtPhone";
+            this.dgvTxtPhone.ReadOnly = true;
+            // 
+            // dgvTxtAddress
+            // 
+            this.dgvTxtAddress.DataPropertyName = "address";
+            this.dgvTxtAddress.HeaderText = "Adresa";
+            this.dgvTxtAddress.Name = "dgvTxtAddress";
+            this.dgvTxtAddress.ReadOnly = true;
             // 
             // frmUsers
             // 
@@ -387,7 +397,7 @@
             this.grpList.ResumeLayout(false);
             this.grpList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             this.ResumeLayout(false);
 
@@ -401,14 +411,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtSearch;
         private LibrarianDS librarianDS;
-        private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.BindingSource userBS;
         private LibrarianDSTableAdapters.userTA userTA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblId;
@@ -425,5 +429,11 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtAddress;
     }
 }
