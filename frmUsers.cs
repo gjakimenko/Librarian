@@ -31,17 +31,26 @@ namespace Library
             this.userTA.Update(librarianDS);
             dgvUsers.Refresh();
             btnAdd.Enabled = true;
+            ((frmMain)this.MdiParent).WriteToStatus("Korisnik ažuriran...", 5000);
         }
-
+        /*
+         * Add user in database
+         */
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.userBS.AddNew();
             btnAdd.Enabled = false;
+            ((frmMain)this.MdiParent).WriteToStatus("Unesite podatke korisnika, zatim pritisnite Uredi", 5000);
         }
-
+        /*
+         * Delete user row in database
+         */
         private void btnRemove_Click(object sender, EventArgs e)
         {
             this.userBS.RemoveCurrent();
+            this.userTA.Update(librarianDS);
+            // Calling function from frmMain
+            ((frmMain)this.MdiParent).WriteToStatus("Korisnik obrisan...", 5000);
         }
 
     }
