@@ -3632,7 +3632,7 @@ SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, ca
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, cat" +
@@ -3654,6 +3654,30 @@ FROM            tbl_book LEFT OUTER JOIN
                          tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
                          tbl_type ON tbl_book.type_id = tbl_type.id";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
+                         tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
+                         tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
+FROM            tbl_book LEFT OUTER JOIN
+                         tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
+                         tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
+                         tbl_type ON tbl_book.type_id = tbl_type.id
+WHERE tbl_book.author LIKE @searchString";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
+                         tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
+                         tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
+FROM            tbl_book LEFT OUTER JOIN
+                         tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
+                         tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
+                         tbl_type ON tbl_book.type_id = tbl_type.id
+WHERE tbl_book.title LIKE @searchString";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3725,6 +3749,78 @@ FROM            tbl_book LEFT OUTER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LibrarianDS.bookDataTable GetDataWithRelations() {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            LibrarianDS.bookDataTable dataTable = new LibrarianDS.bookDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SearchByAuthor(LibrarianDS.bookDataTable dataTable, string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LibrarianDS.bookDataTable SearchDataByAuthor(string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
+            LibrarianDS.bookDataTable dataTable = new LibrarianDS.bookDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SearchByTitle(LibrarianDS.bookDataTable dataTable, string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LibrarianDS.bookDataTable SearchDataByTitle(string searchString) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((searchString == null)) {
+                throw new global::System.ArgumentNullException("searchString");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(searchString));
+            }
             LibrarianDS.bookDataTable dataTable = new LibrarianDS.bookDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

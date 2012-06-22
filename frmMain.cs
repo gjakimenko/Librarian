@@ -103,13 +103,12 @@ namespace Library
             addBook();
         }
 
-        private void tsmPrikaziListu_Click(object sender, EventArgs e)
+        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                frmUsers FrmUsers = new frmUsers();
-                FrmUsers.MdiParent = this;
-                FrmUsers.StartPosition = FormStartPosition.CenterParent;
-                FrmUsers.Show();
+            frmUsers FrmUsers = new frmUsers();
+            FrmUsers.MdiParent = this;
+            FrmUsers.StartPosition = FormStartPosition.CenterParent;
+            FrmUsers.Show();
         }
-
     }
 }

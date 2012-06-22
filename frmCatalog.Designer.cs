@@ -59,6 +59,8 @@
             this.txtISBN10 = new System.Windows.Forms.TextBox();
             this.lblISBN10 = new System.Windows.Forms.Label();
             this.grpList = new System.Windows.Forms.GroupBox();
+            this.rdbAuthor = new System.Windows.Forms.RadioButton();
+            this.rdbTitle = new System.Windows.Forms.RadioButton();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvCatalog = new System.Windows.Forms.DataGridView();
@@ -397,6 +399,8 @@
             this.grpList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpList.Controls.Add(this.rdbAuthor);
+            this.grpList.Controls.Add(this.rdbTitle);
             this.grpList.Controls.Add(this.lblSearch);
             this.grpList.Controls.Add(this.txtSearch);
             this.grpList.Controls.Add(this.dgvCatalog);
@@ -406,6 +410,31 @@
             this.grpList.TabIndex = 0;
             this.grpList.TabStop = false;
             this.grpList.Text = "Ispis";
+            // 
+            // rdbAuthor
+            // 
+            this.rdbAuthor.AutoSize = true;
+            this.rdbAuthor.Location = new System.Drawing.Point(291, 18);
+            this.rdbAuthor.Name = "rdbAuthor";
+            this.rdbAuthor.Size = new System.Drawing.Size(50, 17);
+            this.rdbAuthor.TabIndex = 4;
+            this.rdbAuthor.TabStop = true;
+            this.rdbAuthor.Text = "Autor";
+            this.rdbAuthor.UseVisualStyleBackColor = true;
+            this.rdbAuthor.CheckedChanged += new System.EventHandler(this.rdbAuthor_CheckedChanged);
+            // 
+            // rdbTitle
+            // 
+            this.rdbTitle.AutoSize = true;
+            this.rdbTitle.Checked = true;
+            this.rdbTitle.Location = new System.Drawing.Point(213, 18);
+            this.rdbTitle.Name = "rdbTitle";
+            this.rdbTitle.Size = new System.Drawing.Size(58, 17);
+            this.rdbTitle.TabIndex = 3;
+            this.rdbTitle.TabStop = true;
+            this.rdbTitle.Text = "Naslov";
+            this.rdbTitle.UseVisualStyleBackColor = true;
+            this.rdbTitle.CheckedChanged += new System.EventHandler(this.rdbTitle_CheckedChanged);
             // 
             // lblSearch
             // 
@@ -424,6 +453,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(270, 20);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dgvCatalog
             // 
@@ -636,5 +666,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.RadioButton rdbAuthor;
+        private System.Windows.Forms.RadioButton rdbTitle;
     }
 }

@@ -87,10 +87,10 @@ namespace Library
                 dgvCatalog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             }
         }
+
         /*
          * Function for DataGridView refresh
          */
-        
         public void catalogRefresh()
         {
             this.bookTA.Fill(this.librarianDS.book);
@@ -105,12 +105,37 @@ namespace Library
             catalogRefresh();
         }
 
-        /*
-         * Function for adding new book, function will generate error if some spaces are empty
-         */
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddBook();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            // generate string complient with sql LIKE operator
+            string searchString = "%" + txtSearch.Text.Replace(" ", "%") + "%";
+
+            if (rdbAuthor.Checked)
+            {
+                this.bookTA.SearchByAuthor(this.librarianDS.book, searchString);
+            }
+            else
+            {
+                this.bookTA.SearchByTitle(this.librarianDS.book, searchString);
+            }
+            dgvCatalog.Refresh();
+        }
+
+        private void rdbTitle_CheckedChanged(object sender, EventArgs e)
+        {
+            catalogRefresh();
+            txtSearch.Text = "";
+        }
+
+        private void rdbAuthor_CheckedChanged(object sender, EventArgs e)
+        {
+            catalogRefresh();
+            txtSearch.Text = "";
         }
     }
 }

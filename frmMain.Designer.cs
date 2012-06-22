@@ -35,10 +35,6 @@
             this.tsiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiFileSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPrikaziListu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsiUserEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogList = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +42,7 @@
             this.tsiCatalogImport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogExport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiRent = new System.Windows.Forms.ToolStripMenuItem();
+            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiRentList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +70,6 @@
             // 
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiFile,
-            this.tsiUser,
             this.tsiCatalog,
             this.tsiRent,
             this.tsiHelp});
@@ -102,34 +98,6 @@
             this.tsiFileExit.Name = "tsiFileExit";
             this.tsiFileExit.Size = new System.Drawing.Size(96, 22);
             this.tsiFileExit.Text = "Izlaz";
-            // 
-            // tsiUser
-            // 
-            this.tsiUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmPrikaziListu,
-            this.toolStripMenuItem1,
-            this.tsiUserEdit});
-            this.tsiUser.Name = "tsiUser";
-            this.tsiUser.Size = new System.Drawing.Size(61, 20);
-            this.tsiUser.Text = "Korisnik";
-            // 
-            // tsmPrikaziListu
-            // 
-            this.tsmPrikaziListu.Name = "tsmPrikaziListu";
-            this.tsmPrikaziListu.Size = new System.Drawing.Size(152, 22);
-            this.tsmPrikaziListu.Text = "Prikaži listu";
-            this.tsmPrikaziListu.Click += new System.EventHandler(this.tsmPrikaziListu_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // tsiUserEdit
-            // 
-            this.tsiUserEdit.Name = "tsiUserEdit";
-            this.tsiUserEdit.Size = new System.Drawing.Size(152, 22);
-            this.tsiUserEdit.Text = "Uređivanje";
             // 
             // tsiCatalog
             // 
@@ -177,15 +145,23 @@
             // tsiRent
             // 
             this.tsiRent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.korisniciToolStripMenuItem,
             this.tsiRentList});
             this.tsiRent.Name = "tsiRent";
             this.tsiRent.Size = new System.Drawing.Size(65, 20);
             this.tsiRent.Text = "Posudbe";
             // 
+            // korisniciToolStripMenuItem
+            // 
+            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.korisniciToolStripMenuItem.Text = "Korisnici";
+            this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
+            // 
             // tsiRentList
             // 
             this.tsiRentList.Name = "tsiRentList";
-            this.tsiRentList.Size = new System.Drawing.Size(108, 22);
+            this.tsiRentList.Size = new System.Drawing.Size(152, 22);
             this.tsiRentList.Text = "Prikaži";
             // 
             // tsiHelp
@@ -234,8 +210,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsiFile;
         private System.Windows.Forms.ToolStripSeparator tsiFileSep1;
         private System.Windows.Forms.ToolStripMenuItem tsiFileExit;
-        private System.Windows.Forms.ToolStripMenuItem tsiUser;
-        private System.Windows.Forms.ToolStripMenuItem tsiUserEdit;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalog;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogAdd;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogList;
@@ -248,8 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiHelpAbout;
         private System.Windows.Forms.ToolStripStatusLabel tslStatus;
         private System.Windows.Forms.Timer tmrClearStatus;
-        private System.Windows.Forms.ToolStripMenuItem tsmPrikaziListu;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
     }
 }
 
