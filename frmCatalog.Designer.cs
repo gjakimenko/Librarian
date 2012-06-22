@@ -144,6 +144,7 @@
             // 
             // btnRent
             // 
+            this.btnRent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRent.Location = new System.Drawing.Point(251, 414);
             this.btnRent.Name = "btnRent";
             this.btnRent.Size = new System.Drawing.Size(99, 45);
@@ -153,6 +154,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = new System.Drawing.Point(41, 465);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 45);
@@ -163,6 +165,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Location = new System.Drawing.Point(146, 466);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(99, 45);
@@ -173,6 +176,7 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemove.Location = new System.Drawing.Point(251, 465);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(99, 45);
@@ -409,9 +413,9 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.Location = new System.Drawing.Point(371, 20);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(41, 13);
+            this.lblSearch.Size = new System.Drawing.Size(33, 13);
             this.lblSearch.TabIndex = 2;
-            this.lblSearch.Text = "Search";
+            this.lblSearch.Text = "Traži:";
             // 
             // txtSearch
             // 
@@ -560,6 +564,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 541);
             this.Controls.Add(this.spcContainer);
+            this.MinimumSize = new System.Drawing.Size(1111, 579);
             this.Name = "frmCatalog";
             this.Text = "Katalog";
             this.Load += new System.EventHandler(this.frmCatalog_Load);

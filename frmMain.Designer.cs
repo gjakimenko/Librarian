@@ -36,7 +36,8 @@
             this.tsiFileSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiUserAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPrikaziListu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiUserEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,17 +106,24 @@
             // tsiUser
             // 
             this.tsiUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsiUserAdd,
+            this.tsmPrikaziListu,
+            this.toolStripMenuItem1,
             this.tsiUserEdit});
             this.tsiUser.Name = "tsiUser";
             this.tsiUser.Size = new System.Drawing.Size(61, 20);
             this.tsiUser.Text = "Korisnik";
             // 
-            // tsiUserAdd
+            // tsmPrikaziListu
             // 
-            this.tsiUserAdd.Name = "tsiUserAdd";
-            this.tsiUserAdd.Size = new System.Drawing.Size(152, 22);
-            this.tsiUserAdd.Text = "Dodaj";
+            this.tsmPrikaziListu.Name = "tsmPrikaziListu";
+            this.tsmPrikaziListu.Size = new System.Drawing.Size(152, 22);
+            this.tsmPrikaziListu.Text = "Prikaži listu";
+            this.tsmPrikaziListu.Click += new System.EventHandler(this.tsmPrikaziListu_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsiUserEdit
             // 
@@ -138,32 +146,32 @@
             // tsiCatalogAdd
             // 
             this.tsiCatalogAdd.Name = "tsiCatalogAdd";
-            this.tsiCatalogAdd.Size = new System.Drawing.Size(152, 22);
+            this.tsiCatalogAdd.Size = new System.Drawing.Size(150, 22);
             this.tsiCatalogAdd.Text = "Dodaj knjigu";
             this.tsiCatalogAdd.Click += new System.EventHandler(this.tsiCatalogAdd_Click);
             // 
             // tsiCatalogList
             // 
             this.tsiCatalogList.Name = "tsiCatalogList";
-            this.tsiCatalogList.Size = new System.Drawing.Size(152, 22);
+            this.tsiCatalogList.Size = new System.Drawing.Size(150, 22);
             this.tsiCatalogList.Text = "Prikaži katalog";
             this.tsiCatalogList.Click += new System.EventHandler(this.tsiCatalogList_Click);
             // 
             // tsiCatalogSep1
             // 
             this.tsiCatalogSep1.Name = "tsiCatalogSep1";
-            this.tsiCatalogSep1.Size = new System.Drawing.Size(149, 6);
+            this.tsiCatalogSep1.Size = new System.Drawing.Size(147, 6);
             // 
             // tsiCatalogImport
             // 
             this.tsiCatalogImport.Name = "tsiCatalogImport";
-            this.tsiCatalogImport.Size = new System.Drawing.Size(152, 22);
+            this.tsiCatalogImport.Size = new System.Drawing.Size(150, 22);
             this.tsiCatalogImport.Text = "Uvoz kataloga";
             // 
             // tsiCatalogExport
             // 
             this.tsiCatalogExport.Name = "tsiCatalogExport";
-            this.tsiCatalogExport.Size = new System.Drawing.Size(152, 22);
+            this.tsiCatalogExport.Size = new System.Drawing.Size(150, 22);
             this.tsiCatalogExport.Text = "Izvoz kataloga";
             // 
             // tsiRent
@@ -227,7 +235,6 @@
         private System.Windows.Forms.ToolStripSeparator tsiFileSep1;
         private System.Windows.Forms.ToolStripMenuItem tsiFileExit;
         private System.Windows.Forms.ToolStripMenuItem tsiUser;
-        private System.Windows.Forms.ToolStripMenuItem tsiUserAdd;
         private System.Windows.Forms.ToolStripMenuItem tsiUserEdit;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalog;
         private System.Windows.Forms.ToolStripMenuItem tsiCatalogAdd;
@@ -241,6 +248,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsiHelpAbout;
         private System.Windows.Forms.ToolStripStatusLabel tslStatus;
         private System.Windows.Forms.Timer tmrClearStatus;
+        private System.Windows.Forms.ToolStripMenuItem tsmPrikaziListu;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 
