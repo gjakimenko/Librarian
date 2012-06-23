@@ -19,8 +19,6 @@ namespace Library
         private void frmMain_Load(object sender, EventArgs e)
         {
             WriteToStatus("Welcome to Librarian...", 5000);
-
-            OpenCatalog();
         }
 
         private void tsiCatalogList_Click(object sender, EventArgs e)
@@ -33,7 +31,7 @@ namespace Library
          */
         public bool focusForm(string formName)
         {
-            // if login form already opened, focus on form
+            // if form already opened, focus on form
             foreach (Form form in this.MdiChildren)
             {
                 if (form.Name == formName)
@@ -103,7 +101,7 @@ namespace Library
             addBook();
         }
 
-        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsiRentUser_Click(object sender, EventArgs e)
         {
             frmUsers FrmUsers = new frmUsers();
             FrmUsers.MdiParent = this;

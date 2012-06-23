@@ -3632,7 +3632,7 @@ SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, ca
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, cat" +
@@ -3656,16 +3656,20 @@ FROM            tbl_book LEFT OUTER JOIN
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
-                         tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
-                         tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
-FROM            tbl_book LEFT OUTER JOIN
-                         tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
-                         tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
-                         tbl_type ON tbl_book.type_id = tbl_type.id
-WHERE tbl_book.author LIKE @searchString";
+            this._commandCollection[3].CommandText = @"INSERT INTO tbl_book
+                         (ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, category_id)
+VALUES        (@ISBN10,@ISBN13,@title,@author,@year,@stock,@type_id,@publisher_id,@category_id); 
+SELECT id, ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, category_id FROM tbl_book WHERE (id = SCOPE_IDENTITY())";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN10", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN10", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN13", global::System.Data.SqlDbType.NVarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN13", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@title", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@author", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@year", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "type_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publisher_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "publisher_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@category_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "category_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
@@ -3675,9 +3679,21 @@ FROM            tbl_book LEFT OUTER JOIN
                          tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
                          tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
                          tbl_type ON tbl_book.type_id = tbl_type.id
-WHERE tbl_book.title LIKE @searchString";
+WHERE tbl_book.author LIKE @searchString";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT        tbl_book.id, tbl_book.ISBN10, tbl_book.ISBN13, tbl_book.title, tbl_book.author, tbl_book.year, tbl_book.stock, tbl_book.type_id, tbl_type.name AS type_name, 
+                         tbl_type.description AS type_description, tbl_book.publisher_id, tbl_publisher.name AS publisher_name, tbl_publisher.description AS publisher_description, 
+                         tbl_publisher.website AS publisher_website, tbl_book.category_id, tbl_category.name AS category_name, tbl_category.description AS category_description
+FROM            tbl_book LEFT OUTER JOIN
+                         tbl_category ON tbl_book.category_id = tbl_category.id LEFT OUTER JOIN
+                         tbl_publisher ON tbl_book.publisher_id = tbl_publisher.id  LEFT OUTER JOIN
+                         tbl_type ON tbl_book.type_id = tbl_type.id
+WHERE tbl_book.title LIKE @searchString";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchString", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3759,7 +3775,7 @@ WHERE tbl_book.title LIKE @searchString";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int SearchByAuthor(LibrarianDS.bookDataTable dataTable, string searchString) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((searchString == null)) {
                 throw new global::System.ArgumentNullException("searchString");
             }
@@ -3778,7 +3794,7 @@ WHERE tbl_book.title LIKE @searchString";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LibrarianDS.bookDataTable SearchDataByAuthor(string searchString) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((searchString == null)) {
                 throw new global::System.ArgumentNullException("searchString");
             }
@@ -3795,7 +3811,7 @@ WHERE tbl_book.title LIKE @searchString";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int SearchByTitle(LibrarianDS.bookDataTable dataTable, string searchString) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((searchString == null)) {
                 throw new global::System.ArgumentNullException("searchString");
             }
@@ -3814,7 +3830,7 @@ WHERE tbl_book.title LIKE @searchString";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LibrarianDS.bookDataTable SearchDataByTitle(string searchString) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((searchString == null)) {
                 throw new global::System.ArgumentNullException("searchString");
             }
@@ -4178,6 +4194,78 @@ WHERE tbl_book.title LIKE @searchString";
                     global::System.Nullable<int> Original_publisher_id, 
                     global::System.Nullable<int> Original_category_id) {
             return this.Update(ISBN10, ISBN13, title, author, year, stock, type_id, publisher_id, category_id, Original_id, Original_ISBN10, Original_ISBN13, Original_title, Original_author, Original_year, Original_stock, Original_type_id, Original_publisher_id, Original_category_id, Original_id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertBook(string ISBN10, string ISBN13, string title, string author, global::System.Nullable<int> year, int stock, global::System.Nullable<int> type_id, global::System.Nullable<int> publisher_id, global::System.Nullable<int> category_id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((ISBN10 == null)) {
+                throw new global::System.ArgumentNullException("ISBN10");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(ISBN10));
+            }
+            if ((ISBN13 == null)) {
+                throw new global::System.ArgumentNullException("ISBN13");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(ISBN13));
+            }
+            if ((title == null)) {
+                throw new global::System.ArgumentNullException("title");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(title));
+            }
+            if ((author == null)) {
+                throw new global::System.ArgumentNullException("author");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(author));
+            }
+            if ((year.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(year.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[5].Value = ((int)(stock));
+            if ((type_id.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(type_id.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((publisher_id.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(publisher_id.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((category_id.HasValue == true)) {
+                command.Parameters[8].Value = ((int)(category_id.Value));
+            }
+            else {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
