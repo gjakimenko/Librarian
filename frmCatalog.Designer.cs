@@ -31,33 +31,28 @@
             this.components = new System.ComponentModel.Container();
             this.spcContainer = new System.Windows.Forms.SplitContainer();
             this.grpEdit = new System.Windows.Forms.GroupBox();
+            this.btnCopyToClipboard = new System.Windows.Forms.Button();
+            this.lblISBN_10 = new System.Windows.Forms.Label();
+            this.lblKategorija = new System.Windows.Forms.Label();
+            this.lblTip = new System.Windows.Forms.Label();
+            this.lblIzdavac = new System.Windows.Forms.Label();
+            this.lblGodina = new System.Windows.Forms.Label();
             this.btnRent = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.txtISBN13 = new System.Windows.Forms.TextBox();
+            this.lblISBN10 = new System.Windows.Forms.Label();
             this.bookBS = new System.Windows.Forms.BindingSource(this.components);
             this.librarianDS = new Library.LibrarianDS();
-            this.lblISBN13 = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblCategory = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblType = new System.Windows.Forms.Label();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.nupStock = new System.Windows.Forms.NumericUpDown();
+            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblPublisher = new System.Windows.Forms.Label();
-            this.cmbPublisher = new System.Windows.Forms.ComboBox();
             this.publisherBS = new System.Windows.Forms.BindingSource(this.components);
             this.lblYear = new System.Windows.Forms.Label();
-            this.mtbYear = new System.Windows.Forms.MaskedTextBox();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.lblAuthor = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtISBN10 = new System.Windows.Forms.TextBox();
-            this.lblISBN10 = new System.Windows.Forms.Label();
             this.grpList = new System.Windows.Forms.GroupBox();
             this.rdbAuthor = new System.Windows.Forms.RadioButton();
             this.rdbTitle = new System.Windows.Forms.RadioButton();
@@ -87,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).BeginInit();
             this.grpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalog)).BeginInit();
@@ -115,34 +109,86 @@
             this.grpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpEdit.Controls.Add(this.btnCopyToClipboard);
+            this.grpEdit.Controls.Add(this.lblISBN_10);
+            this.grpEdit.Controls.Add(this.lblKategorija);
+            this.grpEdit.Controls.Add(this.lblTip);
+            this.grpEdit.Controls.Add(this.lblIzdavac);
+            this.grpEdit.Controls.Add(this.lblGodina);
             this.grpEdit.Controls.Add(this.btnRent);
             this.grpEdit.Controls.Add(this.btnAdd);
             this.grpEdit.Controls.Add(this.btnEdit);
             this.grpEdit.Controls.Add(this.btnRemove);
-            this.grpEdit.Controls.Add(this.txtISBN13);
-            this.grpEdit.Controls.Add(this.lblISBN13);
-            this.grpEdit.Controls.Add(this.cmbCategory);
-            this.grpEdit.Controls.Add(this.lblCategory);
-            this.grpEdit.Controls.Add(this.cmbType);
-            this.grpEdit.Controls.Add(this.lblType);
-            this.grpEdit.Controls.Add(this.lblStock);
-            this.grpEdit.Controls.Add(this.nupStock);
-            this.grpEdit.Controls.Add(this.lblPublisher);
-            this.grpEdit.Controls.Add(this.cmbPublisher);
-            this.grpEdit.Controls.Add(this.lblYear);
-            this.grpEdit.Controls.Add(this.mtbYear);
-            this.grpEdit.Controls.Add(this.txtAuthor);
-            this.grpEdit.Controls.Add(this.lblAuthor);
-            this.grpEdit.Controls.Add(this.txtTitle);
-            this.grpEdit.Controls.Add(this.lblTitle);
-            this.grpEdit.Controls.Add(this.txtISBN10);
             this.grpEdit.Controls.Add(this.lblISBN10);
+            this.grpEdit.Controls.Add(this.lblCategory);
+            this.grpEdit.Controls.Add(this.lblType);
+            this.grpEdit.Controls.Add(this.lblPublisher);
+            this.grpEdit.Controls.Add(this.lblYear);
+            this.grpEdit.Controls.Add(this.lblAuthor);
+            this.grpEdit.Controls.Add(this.lblTitle);
             this.grpEdit.Location = new System.Drawing.Point(12, 12);
             this.grpEdit.Name = "grpEdit";
             this.grpEdit.Size = new System.Drawing.Size(357, 517);
             this.grpEdit.TabIndex = 0;
             this.grpEdit.TabStop = false;
             this.grpEdit.Text = "Uredi";
+            // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.Image = global::Library.Properties.Resources.Copy_to_Clipboard;
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(200, 414);
+            this.btnCopyToClipboard.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(45, 45);
+            this.btnCopyToClipboard.TabIndex = 29;
+            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
+            // 
+            // lblISBN_10
+            // 
+            this.lblISBN_10.AutoSize = true;
+            this.lblISBN_10.Location = new System.Drawing.Point(7, 121);
+            this.lblISBN_10.Name = "lblISBN_10";
+            this.lblISBN_10.Size = new System.Drawing.Size(47, 13);
+            this.lblISBN_10.TabIndex = 28;
+            this.lblISBN_10.Text = "ISBN10:";
+            this.lblISBN_10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblKategorija
+            // 
+            this.lblKategorija.AutoSize = true;
+            this.lblKategorija.Location = new System.Drawing.Point(7, 104);
+            this.lblKategorija.Name = "lblKategorija";
+            this.lblKategorija.Size = new System.Drawing.Size(57, 13);
+            this.lblKategorija.TabIndex = 27;
+            this.lblKategorija.Text = "Kategorija:";
+            // 
+            // lblTip
+            // 
+            this.lblTip.AutoSize = true;
+            this.lblTip.Location = new System.Drawing.Point(7, 87);
+            this.lblTip.Name = "lblTip";
+            this.lblTip.Size = new System.Drawing.Size(25, 13);
+            this.lblTip.TabIndex = 26;
+            this.lblTip.Text = "Tip:";
+            // 
+            // lblIzdavac
+            // 
+            this.lblIzdavac.AutoSize = true;
+            this.lblIzdavac.Location = new System.Drawing.Point(7, 53);
+            this.lblIzdavac.Name = "lblIzdavac";
+            this.lblIzdavac.Size = new System.Drawing.Size(48, 13);
+            this.lblIzdavac.TabIndex = 25;
+            this.lblIzdavac.Text = "Izdavač:";
+            // 
+            // lblGodina
+            // 
+            this.lblGodina.AutoSize = true;
+            this.lblGodina.Location = new System.Drawing.Point(7, 70);
+            this.lblGodina.Name = "lblGodina";
+            this.lblGodina.Size = new System.Drawing.Size(44, 13);
+            this.lblGodina.TabIndex = 24;
+            this.lblGodina.Text = "Godina:";
             // 
             // btnRent
             // 
@@ -187,15 +233,16 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // txtISBN13
+            // lblISBN10
             // 
-            this.txtISBN13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtISBN13.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN13", true));
-            this.txtISBN13.Location = new System.Drawing.Point(129, 228);
-            this.txtISBN13.Name = "txtISBN13";
-            this.txtISBN13.Size = new System.Drawing.Size(222, 20);
-            this.txtISBN13.TabIndex = 19;
+            this.lblISBN10.AutoSize = true;
+            this.lblISBN10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN10", true));
+            this.lblISBN10.Location = new System.Drawing.Point(70, 121);
+            this.lblISBN10.Name = "lblISBN10";
+            this.lblISBN10.Size = new System.Drawing.Size(44, 13);
+            this.lblISBN10.TabIndex = 18;
+            this.lblISBN10.Text = "ISBN10";
+            this.lblISBN10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bookBS
             // 
@@ -207,110 +254,45 @@
             this.librarianDS.DataSetName = "LibrarianDS";
             this.librarianDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lblISBN13
+            // lblCategory
             // 
-            this.lblISBN13.AutoSize = true;
-            this.lblISBN13.Location = new System.Drawing.Point(6, 231);
-            this.lblISBN13.Name = "lblISBN13";
-            this.lblISBN13.Size = new System.Drawing.Size(44, 13);
-            this.lblISBN13.TabIndex = 18;
-            this.lblISBN13.Text = "ISBN13";
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "category_id", true));
-            this.cmbCategory.DataSource = this.categoryBS;
-            this.cmbCategory.DisplayMember = "name";
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(129, 201);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(222, 21);
-            this.cmbCategory.TabIndex = 17;
-            this.cmbCategory.ValueMember = "id";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBS, "name", true));
+            this.lblCategory.Location = new System.Drawing.Point(70, 104);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(54, 13);
+            this.lblCategory.TabIndex = 16;
+            this.lblCategory.Text = "Kategorija";
             // 
             // categoryBS
             // 
             this.categoryBS.DataMember = "category";
             this.categoryBS.DataSource = this.librarianDS;
             // 
-            // lblCategory
+            // lblType
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(6, 204);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(54, 13);
-            this.lblCategory.TabIndex = 16;
-            this.lblCategory.Text = "Kategorija";
-            // 
-            // cmbType
-            // 
-            this.cmbType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "type_id", true));
-            this.cmbType.DataSource = this.typeBS;
-            this.cmbType.DisplayMember = "name";
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(129, 174);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(222, 21);
-            this.cmbType.TabIndex = 15;
-            this.cmbType.ValueMember = "id";
+            this.lblType.AutoSize = true;
+            this.lblType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "name", true));
+            this.lblType.Location = new System.Drawing.Point(70, 87);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(22, 13);
+            this.lblType.TabIndex = 12;
+            this.lblType.Text = "Tip";
             // 
             // typeBS
             // 
             this.typeBS.DataMember = "type";
             this.typeBS.DataSource = this.librarianDS;
             // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(6, 177);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(22, 13);
-            this.lblType.TabIndex = 12;
-            this.lblType.Text = "Tip";
-            // 
-            // lblStock
-            // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(6, 150);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(46, 13);
-            this.lblStock.TabIndex = 11;
-            this.lblStock.Text = "Komada";
-            // 
-            // nupStock
-            // 
-            this.nupStock.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bookBS, "stock", true));
-            this.nupStock.Location = new System.Drawing.Point(251, 148);
-            this.nupStock.Name = "nupStock";
-            this.nupStock.Size = new System.Drawing.Size(100, 20);
-            this.nupStock.TabIndex = 10;
-            // 
             // lblPublisher
             // 
             this.lblPublisher.AutoSize = true;
-            this.lblPublisher.Location = new System.Drawing.Point(6, 124);
+            this.lblPublisher.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.publisherBS, "name", true));
+            this.lblPublisher.Location = new System.Drawing.Point(70, 53);
             this.lblPublisher.Name = "lblPublisher";
             this.lblPublisher.Size = new System.Drawing.Size(45, 13);
             this.lblPublisher.TabIndex = 9;
             this.lblPublisher.Text = "Izdavač";
-            // 
-            // cmbPublisher
-            // 
-            this.cmbPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbPublisher.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bookBS, "publisher_id", true));
-            this.cmbPublisher.DataSource = this.publisherBS;
-            this.cmbPublisher.DisplayMember = "name";
-            this.cmbPublisher.FormattingEnabled = true;
-            this.cmbPublisher.Location = new System.Drawing.Point(129, 121);
-            this.cmbPublisher.Name = "cmbPublisher";
-            this.cmbPublisher.Size = new System.Drawing.Size(222, 21);
-            this.cmbPublisher.TabIndex = 8;
-            this.cmbPublisher.ValueMember = "id";
             // 
             // publisherBS
             // 
@@ -320,79 +302,35 @@
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(6, 98);
+            this.lblYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "year", true));
+            this.lblYear.Location = new System.Drawing.Point(70, 70);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(41, 13);
             this.lblYear.TabIndex = 7;
             this.lblYear.Text = "Godina";
             // 
-            // mtbYear
-            // 
-            this.mtbYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtbYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "year", true));
-            this.mtbYear.Location = new System.Drawing.Point(251, 95);
-            this.mtbYear.Mask = "0000";
-            this.mtbYear.Name = "mtbYear";
-            this.mtbYear.Size = new System.Drawing.Size(100, 20);
-            this.mtbYear.TabIndex = 6;
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuthor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "author", true));
-            this.txtAuthor.Location = new System.Drawing.Point(129, 69);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(222, 20);
-            this.txtAuthor.TabIndex = 5;
-            // 
             // lblAuthor
             // 
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Location = new System.Drawing.Point(6, 72);
+            this.lblAuthor.AutoEllipsis = true;
+            this.lblAuthor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "author", true));
+            this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAuthor.Location = new System.Drawing.Point(7, 36);
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(32, 13);
+            this.lblAuthor.Size = new System.Drawing.Size(344, 17);
             this.lblAuthor.TabIndex = 4;
             this.lblAuthor.Text = "Autor";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "title", true));
-            this.txtTitle.Location = new System.Drawing.Point(129, 43);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(222, 20);
-            this.txtTitle.TabIndex = 3;
+            this.lblAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(6, 46);
+            this.lblTitle.AutoEllipsis = true;
+            this.lblTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "title", true));
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTitle.Location = new System.Drawing.Point(7, 16);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(40, 13);
+            this.lblTitle.Size = new System.Drawing.Size(344, 16);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Naslov";
-            // 
-            // txtISBN10
-            // 
-            this.txtISBN10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtISBN10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN10", true));
-            this.txtISBN10.Location = new System.Drawing.Point(129, 17);
-            this.txtISBN10.Name = "txtISBN10";
-            this.txtISBN10.Size = new System.Drawing.Size(222, 20);
-            this.txtISBN10.TabIndex = 1;
-            // 
-            // lblISBN10
-            // 
-            this.lblISBN10.AutoSize = true;
-            this.lblISBN10.Location = new System.Drawing.Point(6, 20);
-            this.lblISBN10.Name = "lblISBN10";
-            this.lblISBN10.Size = new System.Drawing.Size(44, 13);
-            this.lblISBN10.TabIndex = 0;
-            this.lblISBN10.Text = "ISBN10";
             // 
             // grpList
             // 
@@ -608,7 +546,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).EndInit();
             this.grpList.ResumeLayout(false);
             this.grpList.PerformLayout();
@@ -636,37 +573,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtCategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtISBN13;
-        private System.Windows.Forms.TextBox txtISBN10;
-        private System.Windows.Forms.Label lblISBN10;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblPublisher;
-        private System.Windows.Forms.ComboBox cmbPublisher;
         private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.MaskedTextBox mtbYear;
-        private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label lblAuthor;
-        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.BindingSource publisherBS;
         private LibrarianDSTableAdapters.publisherTA publisherTA;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.NumericUpDown nupStock;
-        private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.BindingSource typeBS;
         private LibrarianDSTableAdapters.typeTA typeTA;
-        private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.BindingSource categoryBS;
         private LibrarianDSTableAdapters.categoryTA categoryTA;
-        private System.Windows.Forms.TextBox txtISBN13;
-        private System.Windows.Forms.Label lblISBN13;
+        private System.Windows.Forms.Label lblISBN10;
         private System.Windows.Forms.Button btnRent;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.RadioButton rdbAuthor;
         private System.Windows.Forms.RadioButton rdbTitle;
+        private System.Windows.Forms.Label lblISBN_10;
+        private System.Windows.Forms.Label lblKategorija;
+        private System.Windows.Forms.Label lblTip;
+        private System.Windows.Forms.Label lblIzdavac;
+        private System.Windows.Forms.Label lblGodina;
+        private System.Windows.Forms.Button btnCopyToClipboard;
     }
 }

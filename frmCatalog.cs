@@ -137,5 +137,12 @@ namespace Library
             catalogRefresh();
             txtSearch.Text = "";
         }
+
+        private void btnCopyToClipboard_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblTitle.Text + "\r\n" + lblAuthor.Text + "\r\nIzdavač: " + lblPublisher.Text + "\r\nTip: " + lblType.Text + "\r\nKategorija: " + lblCategory.Text + "\r\nISBN10: " + lblISBN10.Text);
+            ((frmMain)this.MdiParent).WriteToStatus("Knjiga zapisana u Clipboard...", 3000);
+        }
+
     }
 }
