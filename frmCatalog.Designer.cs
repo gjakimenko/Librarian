@@ -73,6 +73,7 @@
             this.publisherTA = new Library.LibrarianDSTableAdapters.publisherTA();
             this.typeTA = new Library.LibrarianDSTableAdapters.typeTA();
             this.categoryTA = new Library.LibrarianDSTableAdapters.categoryTA();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.spcContainer)).BeginInit();
             this.spcContainer.Panel1.SuspendLayout();
             this.spcContainer.Panel2.SuspendLayout();
@@ -141,6 +142,7 @@
             this.btnCopyToClipboard.Name = "btnCopyToClipboard";
             this.btnCopyToClipboard.Size = new System.Drawing.Size(45, 45);
             this.btnCopyToClipboard.TabIndex = 29;
+            this.toolTip.SetToolTip(this.btnCopyToClipboard, "Dodaj knjigu u Clipboard");
             this.btnCopyToClipboard.UseVisualStyleBackColor = true;
             this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
             // 
@@ -600,5 +602,6 @@
         private System.Windows.Forms.Label lblIzdavac;
         private System.Windows.Forms.Label lblGodina;
         private System.Windows.Forms.Button btnCopyToClipboard;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
