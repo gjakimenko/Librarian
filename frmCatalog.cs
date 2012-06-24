@@ -67,7 +67,7 @@ namespace Library
         }
 
         /*
-         * Change AutoSizeColumnMode if DGV is bigget than size of columns
+         * Change AutoSizeColumnMode if DGV is bigger than size of columns
          */
         private void AdjustCatalogColumnsSize()
         {
@@ -142,6 +142,17 @@ namespace Library
         {
             Clipboard.SetText(lblTitle.Text + "\r\n" + lblAuthor.Text + "\r\nIzdavač: " + lblPublisher.Text + "\r\nTip: " + lblType.Text + "\r\nKategorija: " + lblCategory.Text + "\r\nISBN10: " + lblISBN10.Text);
             ((frmMain)this.MdiParent).WriteToStatus("Knjiga zapisana u Clipboard...", 3000);
+        }
+
+        private void btnRent_Click(object sender, EventArgs e)
+        {
+            if (!((frmMain)this.MdiParent).focusForm("frmRent"))
+            {
+                frmRent FrmRent = new frmRent(getSelectedBook());
+                FrmRent.MdiParent = this.MdiParent;
+                FrmRent.StartPosition = FormStartPosition.CenterParent;
+                FrmRent.Show();
+            }
         }
 
     }

@@ -163,6 +163,7 @@
             this.tsiRentList.Name = "tsiRentList";
             this.tsiRentList.Size = new System.Drawing.Size(152, 22);
             this.tsiRentList.Text = "Prikaži";
+            this.tsiRentList.Click += new System.EventHandler(this.tsiRentList_Click);
             // 
             // tsiHelp
             // 

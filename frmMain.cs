@@ -59,7 +59,7 @@ namespace Library
         }
 
         /*
-         * Open catalog form as child
+         * Open BookUpdate form as child
          */
         private void addBook()
         {
@@ -103,10 +103,24 @@ namespace Library
 
         private void tsiRentUser_Click(object sender, EventArgs e)
         {
-            frmUsers FrmUsers = new frmUsers();
-            FrmUsers.MdiParent = this;
-            FrmUsers.StartPosition = FormStartPosition.CenterParent;
-            FrmUsers.Show();
+            if (!focusForm("frmUsers"))
+            {
+                frmUsers FrmUsers = new frmUsers();
+                FrmUsers.MdiParent = this;
+                FrmUsers.StartPosition = FormStartPosition.CenterParent;
+                FrmUsers.Show(); 
+            }
+        }
+
+        private void tsiRentList_Click(object sender, EventArgs e)
+        {
+            if (!focusForm("frmRents"))
+            {
+                frmUserRents FrmRents = new frmUserRents();
+                FrmRents.MdiParent = this;
+                FrmRents.StartPosition = FormStartPosition.CenterParent;
+                FrmRents.Show(); 
+            }
         }
     }
 }

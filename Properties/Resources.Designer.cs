@@ -60,13 +60,6 @@ namespace Library.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap add_file {
-            get {
-                object obj = ResourceManager.GetObject("add_file", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap copy_t {
             get {
                 object obj = ResourceManager.GetObject("copy_t", resourceCulture);
@@ -77,6 +70,20 @@ namespace Library.Properties {
         internal static System.Drawing.Bitmap Copy_to_Clipboard {
             get {
                 object obj = ResourceManager.GetObject("Copy_to_Clipboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Copy_to_Clipboard1 {
+            get {
+                object obj = ResourceManager.GetObject("Copy_to_Clipboard1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap user_background {
+            get {
+                object obj = ResourceManager.GetObject("user-background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

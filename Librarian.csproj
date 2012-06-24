@@ -64,6 +64,22 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRent.Designer.cs">
+      <DependentUpon>frmRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserRents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRents.Designer.cs">
+      <DependentUpon>frmUserRents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibrarianDS.cs">
+      <DependentUpon>LibrarianDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LibrarianDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRent.resx">
+      <DependentUpon>frmRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRents.resx">
+      <DependentUpon>frmUserRents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,13 +144,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add_file.png" />
+    <None Include="Resources\Copy_to_Clipboard1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\copy_t.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Copy_to_Clipboard.png" />
+    <None Include="Resources\user-background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

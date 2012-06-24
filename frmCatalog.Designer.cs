@@ -136,8 +136,11 @@
             // 
             // btnCopyToClipboard
             // 
-            this.btnCopyToClipboard.Image = global::Library.Properties.Resources.Copy_to_Clipboard;
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(200, 414);
+            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyToClipboard.FlatAppearance.BorderSize = 0;
+            this.btnCopyToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyToClipboard.Image = global::Library.Properties.Resources.Copy_to_Clipboard1;
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(305, 141);
             this.btnCopyToClipboard.Margin = new System.Windows.Forms.Padding(2);
             this.btnCopyToClipboard.Name = "btnCopyToClipboard";
             this.btnCopyToClipboard.Size = new System.Drawing.Size(45, 45);
@@ -149,7 +152,7 @@
             // lblISBN_10
             // 
             this.lblISBN_10.AutoSize = true;
-            this.lblISBN_10.Location = new System.Drawing.Point(7, 121);
+            this.lblISBN_10.Location = new System.Drawing.Point(7, 173);
             this.lblISBN_10.Name = "lblISBN_10";
             this.lblISBN_10.Size = new System.Drawing.Size(47, 13);
             this.lblISBN_10.TabIndex = 28;
@@ -159,7 +162,7 @@
             // lblKategorija
             // 
             this.lblKategorija.AutoSize = true;
-            this.lblKategorija.Location = new System.Drawing.Point(7, 104);
+            this.lblKategorija.Location = new System.Drawing.Point(7, 148);
             this.lblKategorija.Name = "lblKategorija";
             this.lblKategorija.Size = new System.Drawing.Size(57, 13);
             this.lblKategorija.TabIndex = 27;
@@ -168,7 +171,7 @@
             // lblTip
             // 
             this.lblTip.AutoSize = true;
-            this.lblTip.Location = new System.Drawing.Point(7, 87);
+            this.lblTip.Location = new System.Drawing.Point(7, 123);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(25, 13);
             this.lblTip.TabIndex = 26;
@@ -177,7 +180,7 @@
             // lblIzdavac
             // 
             this.lblIzdavac.AutoSize = true;
-            this.lblIzdavac.Location = new System.Drawing.Point(7, 53);
+            this.lblIzdavac.Location = new System.Drawing.Point(7, 73);
             this.lblIzdavac.Name = "lblIzdavac";
             this.lblIzdavac.Size = new System.Drawing.Size(48, 13);
             this.lblIzdavac.TabIndex = 25;
@@ -186,7 +189,7 @@
             // lblGodina
             // 
             this.lblGodina.AutoSize = true;
-            this.lblGodina.Location = new System.Drawing.Point(7, 70);
+            this.lblGodina.Location = new System.Drawing.Point(7, 98);
             this.lblGodina.Name = "lblGodina";
             this.lblGodina.Size = new System.Drawing.Size(44, 13);
             this.lblGodina.TabIndex = 24;
@@ -201,6 +204,7 @@
             this.btnRent.TabIndex = 23;
             this.btnRent.Text = "Posudi";
             this.btnRent.UseVisualStyleBackColor = true;
+            this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
             // 
             // btnAdd
             // 
@@ -239,7 +243,7 @@
             // 
             this.lblISBN10.AutoSize = true;
             this.lblISBN10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "ISBN10", true));
-            this.lblISBN10.Location = new System.Drawing.Point(70, 121);
+            this.lblISBN10.Location = new System.Drawing.Point(70, 173);
             this.lblISBN10.Name = "lblISBN10";
             this.lblISBN10.Size = new System.Drawing.Size(44, 13);
             this.lblISBN10.TabIndex = 18;
@@ -260,7 +264,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBS, "name", true));
-            this.lblCategory.Location = new System.Drawing.Point(70, 104);
+            this.lblCategory.Location = new System.Drawing.Point(70, 148);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(54, 13);
             this.lblCategory.TabIndex = 16;
@@ -275,7 +279,7 @@
             // 
             this.lblType.AutoSize = true;
             this.lblType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "name", true));
-            this.lblType.Location = new System.Drawing.Point(70, 87);
+            this.lblType.Location = new System.Drawing.Point(70, 123);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(22, 13);
             this.lblType.TabIndex = 12;
@@ -290,7 +294,7 @@
             // 
             this.lblPublisher.AutoSize = true;
             this.lblPublisher.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.publisherBS, "name", true));
-            this.lblPublisher.Location = new System.Drawing.Point(70, 53);
+            this.lblPublisher.Location = new System.Drawing.Point(70, 73);
             this.lblPublisher.Name = "lblPublisher";
             this.lblPublisher.Size = new System.Drawing.Size(45, 13);
             this.lblPublisher.TabIndex = 9;
@@ -305,7 +309,7 @@
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "year", true));
-            this.lblYear.Location = new System.Drawing.Point(70, 70);
+            this.lblYear.Location = new System.Drawing.Point(70, 98);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(41, 13);
             this.lblYear.TabIndex = 7;
@@ -313,10 +317,12 @@
             // 
             // lblAuthor
             // 
+            this.lblAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAuthor.AutoEllipsis = true;
             this.lblAuthor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "author", true));
             this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAuthor.Location = new System.Drawing.Point(7, 36);
+            this.lblAuthor.Location = new System.Drawing.Point(7, 46);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(344, 17);
             this.lblAuthor.TabIndex = 4;
@@ -325,6 +331,8 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.AutoEllipsis = true;
             this.lblTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookBS, "title", true));
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
