@@ -263,7 +263,6 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBS, "name", true));
             this.lblCategory.Location = new System.Drawing.Point(70, 148);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(54, 13);
@@ -278,7 +277,6 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "name", true));
             this.lblType.Location = new System.Drawing.Point(70, 123);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(22, 13);
@@ -293,7 +291,6 @@
             // lblPublisher
             // 
             this.lblPublisher.AutoSize = true;
-            this.lblPublisher.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.publisherBS, "name", true));
             this.lblPublisher.Location = new System.Drawing.Point(70, 73);
             this.lblPublisher.Name = "lblPublisher";
             this.lblPublisher.Size = new System.Drawing.Size(45, 13);
@@ -437,6 +434,7 @@
             this.dgvCatalog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCatalog.Size = new System.Drawing.Size(682, 464);
             this.dgvCatalog.TabIndex = 0;
+            this.dgvCatalog.SelectionChanged += new System.EventHandler(this.dgvCatalog_SelectionChanged);
             this.dgvCatalog.Resize += new System.EventHandler(this.dgvCatalog_Resize);
             // 
             // dgvTxtId

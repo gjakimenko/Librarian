@@ -93,7 +93,10 @@ namespace Library
          */
         public void catalogRefresh()
         {
-            this.bookTA.Fill(this.librarianDS.book);
+            this.typeTA.Fill(this.librarianDS.type);
+            this.publisherTA.Fill(this.librarianDS.publisher);
+            this.categoryTA.Fill(this.librarianDS.category);
+            this.bookTA.FillWithRelations(this.librarianDS.book);
             dgvCatalog.Refresh();
         }
 
@@ -152,6 +155,26 @@ namespace Library
                 FrmRent.MdiParent = this.MdiParent;
                 FrmRent.StartPosition = FormStartPosition.CenterParent;
                 FrmRent.Show();
+            }
+        }
+
+        private void dgvCatalog_SelectionChanged(object sender, EventArgs e)
+        {
+            refreshPane();
+        }
+
+        private void refreshPane()
+        {
+            try
+            {
+                LibrarianDS.bookRow red = getSelectedBook();
+                lblType.Text = red.typeRow.name;
+                lblPublisher.Text = red.publisherRow.name;
+                lblCategory.Text = red.categoryRow.name;
+            }
+            catch (Exception)
+            {
+                
             }
         }
 

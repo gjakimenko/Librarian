@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Library
 {
@@ -120,6 +121,30 @@ namespace Library
                 FrmRents.MdiParent = this;
                 FrmRents.StartPosition = FormStartPosition.CenterParent;
                 FrmRents.Show(); 
+            }
+        }
+
+        private void tsiCatalogExport_Click(object sender, EventArgs e)
+        {
+            DialogResult result = sfdExport.ShowDialog();
+            if (result == DialogResult.OK && sfdExport.FileName != "")
+            {
+                string exportFile = sfdExport.FileName;
+                char delimiter = '|';
+
+                StreamWriter sw = new StreamWriter(sfdExport.FileName, false, Encoding.UTF8);
+
+                LibrarianDS librarianDS = new LibrarianDS();
+                LibrarianDSTableAdapters.bookTA bTA = new LibrarianDSTableAdapters.bookTA();
+                bTA.Fill(librarianDS.book);
+                foreach (LibrarianDS.bookRow row in librarianDS.book.Rows)
+                {
+                    string line = row.ISBN10 + delimiter + row.ISBN13 + delimiter + row.title
+                         + delimiter + row.author + delimiter;
+                    sw.WriteLine(line);
+                }
+
+                sw.Close();
             }
         }
     }

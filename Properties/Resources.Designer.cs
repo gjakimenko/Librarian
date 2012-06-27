@@ -80,12 +80,5 @@ namespace Library.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        internal static System.Drawing.Bitmap user_background {
-            get {
-                object obj = ResourceManager.GetObject("user-background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

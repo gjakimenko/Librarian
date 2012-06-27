@@ -7,18 +7,18 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="16" ViewPortY="109" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:book" ZOrder="7" X="617" Y="286" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
-    <Shape ID="DesignTable:category" ZOrder="6" X="375" Y="119" Height="134" Width="216" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:publisher" ZOrder="5" X="259" Y="337" Height="153" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:rent" ZOrder="1" X="960" Y="248" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:type" ZOrder="4" X="377" Y="648" Height="153" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:user" ZOrder="3" X="961" Y="536" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:category" ZOrder="6" X="375" Y="119" Height="153" Width="250" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:publisher" ZOrder="5" X="259" Y="337" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:rent" ZOrder="2" X="960" Y="248" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:type" ZOrder="1" X="377" Y="648" Height="172" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:user" ZOrder="4" X="961" Y="536" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_book_has_category" ZOrder="11" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>476</X>
-          <Y>253</Y>
+          <Y>272</Y>
         </Point>
         <Point>
           <X>476</X>
@@ -33,7 +33,7 @@
     <Connector ID="DesignRelation:FK_book_has_publisher" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>479</X>
+          <X>559</X>
           <Y>414</Y>
         </Point>
         <Point>
@@ -70,7 +70,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_rent_by_user" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_rent_by_user" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1051</X>

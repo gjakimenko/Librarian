@@ -47,6 +47,8 @@
             this.tsiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrClearStatus = new System.Windows.Forms.Timer(this.components);
+            this.ofdImport = new System.Windows.Forms.OpenFileDialog();
+            this.sfdExport = new System.Windows.Forms.SaveFileDialog();
             this.stsStatusBar.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +143,7 @@
             this.tsiCatalogExport.Name = "tsiCatalogExport";
             this.tsiCatalogExport.Size = new System.Drawing.Size(152, 22);
             this.tsiCatalogExport.Text = "Izvoz kataloga";
+            this.tsiCatalogExport.Click += new System.EventHandler(this.tsiCatalogExport_Click);
             // 
             // tsiRent
             // 
@@ -224,6 +227,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tslStatus;
         private System.Windows.Forms.Timer tmrClearStatus;
         private System.Windows.Forms.ToolStripMenuItem tsiRentUser;
+        private System.Windows.Forms.OpenFileDialog ofdImport;
+        private System.Windows.Forms.SaveFileDialog sfdExport;
     }
 }
 

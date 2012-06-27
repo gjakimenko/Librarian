@@ -12,6 +12,8 @@ namespace Library
     public partial class frmBookUpdate : Form
     {
         int bookId;
+        Librarian librarian = new Librarian();
+
         /*
          *  Function overload
          */
@@ -57,6 +59,7 @@ namespace Library
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // fetch the data from controls
             try
             {
                 // fetch the data from controls
@@ -66,9 +69,9 @@ namespace Library
                 string author = txtAuthor.Text.Trim();
                 int year = Convert.ToInt32(mtbYear.Text);
                 int stock = Convert.ToInt32(nupStock.Value);
-                int typeId = Convert.ToInt32(cmbType.SelectedValue);
-                int publisherId = Convert.ToInt32(cmbPublisher.SelectedValue);
-                int categoryId = Convert.ToInt32(cmbCategory.SelectedValue);
+                int typeId = cmbType.SelectedIndex != -1 ? Convert.ToInt32(cmbType.SelectedValue) : string.IsNullOrEmpty(cmbType.Text) ? -1 : librarian.insertType(cmbType.Text, "");
+                int publisherId = cmbPublisher.SelectedIndex != -1 ? Convert.ToInt32(cmbPublisher.SelectedValue) : string.IsNullOrEmpty(cmbPublisher.Text) ? -1 : librarian.insertPublisher(cmbPublisher.Text, "", "");
+                int categoryId = cmbCategory.SelectedIndex != -1 ? Convert.ToInt32(cmbCategory.SelectedValue) : string.IsNullOrEmpty(cmbCategory.Text) ? -1 : librarian.insertCategory(cmbCategory.Text, "");
 
                 if (string.IsNullOrEmpty(ISBN10) || string.IsNullOrEmpty(ISBN13) || string.IsNullOrEmpty(title) || string.IsNullOrEmpty(author))
                 {
@@ -79,7 +82,7 @@ namespace Library
                 if (btnEdit.Text == "Dodaj")
                 {
                     // insert new book
-                    if (this.bookTA.InsertBook(ISBN10, ISBN13, title, author, year, stock, typeId, publisherId, categoryId) > 0)
+                    if (librarian.insertBook(ISBN10, ISBN13, title, author, year, stock, typeId, publisherId, categoryId))
                     {
                         ((frmMain)this.MdiParent).WriteToStatus("Knjiga dodana", 3000);
                     }
@@ -87,10 +90,19 @@ namespace Library
                     {
                         ((frmMain)this.MdiParent).WriteToStatus("Greška kod zapisa u bazu", 3000);
                     }
+                    this.Close();
                 }
                 // else, just update current record
                 else
                 {
+                    this.typeTA.Fill(this.librarianDS.type);
+                    this.publisherTA.Fill(this.librarianDS.publisher);
+                    this.categoryTA.Fill(this.librarianDS.category);
+
+                    cmbType.SelectedValue = typeId;
+                    cmbPublisher.SelectedValue = publisherId;
+                    cmbCategory.SelectedValue = categoryId;
+
                     this.bookBS.EndEdit();
                     this.bookTA.Update(librarianDS.book);
                     this.Close();
