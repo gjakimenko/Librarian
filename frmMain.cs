@@ -181,5 +181,10 @@ namespace Library
             FrmAbout.StartPosition = FormStartPosition.CenterScreen;
             FrmAbout.Show();
         }
+
+        private void tsiFileExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

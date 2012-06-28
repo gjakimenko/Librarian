@@ -60,20 +60,6 @@ namespace Library.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap copy_t {
-            get {
-                object obj = ResourceManager.GetObject("copy_t", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Copy_to_Clipboard {
-            get {
-                object obj = ResourceManager.GetObject("Copy_to_Clipboard", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Copy_to_Clipboard1 {
             get {
                 object obj = ResourceManager.GetObject("Copy_to_Clipboard1", resourceCulture);

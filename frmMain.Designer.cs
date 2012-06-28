@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.stsStatusBar = new System.Windows.Forms.StatusStrip();
             this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
@@ -97,13 +98,14 @@
             // tsiFileSep1
             // 
             this.tsiFileSep1.Name = "tsiFileSep1";
-            this.tsiFileSep1.Size = new System.Drawing.Size(93, 6);
+            this.tsiFileSep1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsiFileExit
             // 
             this.tsiFileExit.Name = "tsiFileExit";
-            this.tsiFileExit.Size = new System.Drawing.Size(96, 22);
+            this.tsiFileExit.Size = new System.Drawing.Size(152, 22);
             this.tsiFileExit.Text = "Izlaz";
+            this.tsiFileExit.Click += new System.EventHandler(this.tsiFileExit_Click);
             // 
             // tsiCatalog
             // 
@@ -232,6 +234,7 @@
             this.ClientSize = new System.Drawing.Size(1186, 719);
             this.Controls.Add(this.stsStatusBar);
             this.Controls.Add(this.mnuMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnuMain;
             this.Name = "frmMain";
