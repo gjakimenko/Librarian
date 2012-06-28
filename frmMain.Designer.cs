@@ -38,6 +38,10 @@
             this.tsiCatalog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogList = new System.Windows.Forms.ToolStripMenuItem();
+            this.izdavačKategorijaTipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPublisher = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmType = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogSep1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsiCatalogImport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCatalogExport = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,6 +110,7 @@
             this.tsiCatalog.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCatalogAdd,
             this.tsiCatalogList,
+            this.izdavačKategorijaTipToolStripMenuItem,
             this.tsiCatalogSep1,
             this.tsiCatalogImport,
             this.tsiCatalogExport});
@@ -127,6 +132,35 @@
             this.tsiCatalogList.Text = "Prikaži katalog";
             this.tsiCatalogList.Click += new System.EventHandler(this.tsiCatalogList_Click);
             // 
+            // izdavačKategorijaTipToolStripMenuItem
+            // 
+            this.izdavačKategorijaTipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmPublisher,
+            this.tsmCategory,
+            this.tsmType});
+            this.izdavačKategorijaTipToolStripMenuItem.Name = "izdavačKategorijaTipToolStripMenuItem";
+            this.izdavačKategorijaTipToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.izdavačKategorijaTipToolStripMenuItem.Text = "Uredi";
+            // 
+            // tsmPublisher
+            // 
+            this.tsmPublisher.Name = "tsmPublisher";
+            this.tsmPublisher.Size = new System.Drawing.Size(152, 22);
+            this.tsmPublisher.Text = "Izdavač";
+            this.tsmPublisher.Click += new System.EventHandler(this.tsmPublisher_Click);
+            // 
+            // tsmCategory
+            // 
+            this.tsmCategory.Name = "tsmCategory";
+            this.tsmCategory.Size = new System.Drawing.Size(152, 22);
+            this.tsmCategory.Text = "Kategorija";
+            // 
+            // tsmType
+            // 
+            this.tsmType.Name = "tsmType";
+            this.tsmType.Size = new System.Drawing.Size(152, 22);
+            this.tsmType.Text = "Tip";
+            // 
             // tsiCatalogSep1
             // 
             this.tsiCatalogSep1.Name = "tsiCatalogSep1";
@@ -134,12 +168,14 @@
             // 
             // tsiCatalogImport
             // 
+            this.tsiCatalogImport.Enabled = false;
             this.tsiCatalogImport.Name = "tsiCatalogImport";
             this.tsiCatalogImport.Size = new System.Drawing.Size(152, 22);
             this.tsiCatalogImport.Text = "Uvoz kataloga";
             // 
             // tsiCatalogExport
             // 
+            this.tsiCatalogExport.Enabled = false;
             this.tsiCatalogExport.Name = "tsiCatalogExport";
             this.tsiCatalogExport.Size = new System.Drawing.Size(152, 22);
             this.tsiCatalogExport.Text = "Izvoz kataloga";
@@ -157,14 +193,14 @@
             // tsiRentUser
             // 
             this.tsiRentUser.Name = "tsiRentUser";
-            this.tsiRentUser.Size = new System.Drawing.Size(152, 22);
+            this.tsiRentUser.Size = new System.Drawing.Size(119, 22);
             this.tsiRentUser.Text = "Korisnici";
             this.tsiRentUser.Click += new System.EventHandler(this.tsiRentUser_Click);
             // 
             // tsiRentList
             // 
             this.tsiRentList.Name = "tsiRentList";
-            this.tsiRentList.Size = new System.Drawing.Size(152, 22);
+            this.tsiRentList.Size = new System.Drawing.Size(119, 22);
             this.tsiRentList.Text = "Prikaži";
             this.tsiRentList.Click += new System.EventHandler(this.tsiRentList_Click);
             // 
@@ -229,6 +265,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsiRentUser;
         private System.Windows.Forms.OpenFileDialog ofdImport;
         private System.Windows.Forms.SaveFileDialog sfdExport;
+        private System.Windows.Forms.ToolStripMenuItem izdavačKategorijaTipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmPublisher;
+        private System.Windows.Forms.ToolStripMenuItem tsmCategory;
+        private System.Windows.Forms.ToolStripMenuItem tsmType;
     }
 }
 

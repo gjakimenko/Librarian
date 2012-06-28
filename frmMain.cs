@@ -147,5 +147,16 @@ namespace Library
                 sw.Close();
             }
         }
+
+        private void tsmPublisher_Click(object sender, EventArgs e)
+        {
+            if (!focusForm("frmTPCEdit"))
+            {
+                frmTPCEdit FrmTPCEdit = new frmTPCEdit();
+                FrmTPCEdit.MdiParent = this;
+                FrmTPCEdit.StartPosition = FormStartPosition.CenterParent;
+                FrmTPCEdit.Show();
+            }
+        }
     }
 }
