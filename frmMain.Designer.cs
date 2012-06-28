@@ -154,12 +154,14 @@
             this.tsmCategory.Name = "tsmCategory";
             this.tsmCategory.Size = new System.Drawing.Size(152, 22);
             this.tsmCategory.Text = "Kategorija";
+            this.tsmCategory.Click += new System.EventHandler(this.tsmCategory_Click);
             // 
             // tsmType
             // 
             this.tsmType.Name = "tsmType";
             this.tsmType.Size = new System.Drawing.Size(152, 22);
             this.tsmType.Text = "Tip";
+            this.tsmType.Click += new System.EventHandler(this.tsmType_Click);
             // 
             // tsiCatalogSep1
             // 

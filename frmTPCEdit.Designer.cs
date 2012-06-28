@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbcTPC = new System.Windows.Forms.TabControl();
             this.tabPublisher = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.spcPublisher = new System.Windows.Forms.SplitContainer();
             this.grpPublisher = new System.Windows.Forms.GroupBox();
             this.btnAddPublisher = new System.Windows.Forms.Button();
             this.btnEditPublisher = new System.Windows.Forms.Button();
@@ -51,36 +51,60 @@
             this.dgvTxtDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTxtWebsite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabType = new System.Windows.Forms.TabPage();
+            this.spcType = new System.Windows.Forms.SplitContainer();
+            this.grpTypeEdit = new System.Windows.Forms.GroupBox();
+            this.btnAddType = new System.Windows.Forms.Button();
+            this.btnEditType = new System.Windows.Forms.Button();
+            this.btnRemoveType = new System.Windows.Forms.Button();
+            this.lblTypeDesc = new System.Windows.Forms.Label();
+            this.txtTypeDesc = new System.Windows.Forms.TextBox();
+            this.typeBS = new System.Windows.Forms.BindingSource(this.components);
+            this.txtTypeName = new System.Windows.Forms.TextBox();
+            this.lblTypeName = new System.Windows.Forms.Label();
+            this.grpTypePreview = new System.Windows.Forms.GroupBox();
+            this.dgvType = new System.Windows.Forms.DataGridView();
+            this.dgvTxtTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtTypeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCategory = new System.Windows.Forms.TabPage();
             this.publisherTA = new Library.LibrarianDSTableAdapters.publisherTA();
-            this.tabControl1.SuspendLayout();
+            this.typeTA = new Library.LibrarianDSTableAdapters.typeTA();
+            this.tbcTPC.SuspendLayout();
             this.tabPublisher.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcPublisher)).BeginInit();
+            this.spcPublisher.Panel1.SuspendLayout();
+            this.spcPublisher.Panel2.SuspendLayout();
+            this.spcPublisher.SuspendLayout();
             this.grpPublisher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).BeginInit();
             this.grpPublisherPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPublisher)).BeginInit();
+            this.tabType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcType)).BeginInit();
+            this.spcType.Panel1.SuspendLayout();
+            this.spcType.Panel2.SuspendLayout();
+            this.spcType.SuspendLayout();
+            this.grpTypeEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
+            this.grpTypePreview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvType)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tbcTPC
             // 
-            this.tabControl1.Controls.Add(this.tabPublisher);
-            this.tabControl1.Controls.Add(this.tabType);
-            this.tabControl1.Controls.Add(this.tabCategory);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(860, 404);
-            this.tabControl1.TabIndex = 0;
+            this.tbcTPC.Controls.Add(this.tabPublisher);
+            this.tbcTPC.Controls.Add(this.tabType);
+            this.tbcTPC.Controls.Add(this.tabCategory);
+            this.tbcTPC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcTPC.Location = new System.Drawing.Point(0, 0);
+            this.tbcTPC.Name = "tbcTPC";
+            this.tbcTPC.SelectedIndex = 0;
+            this.tbcTPC.Size = new System.Drawing.Size(860, 404);
+            this.tbcTPC.TabIndex = 0;
             // 
             // tabPublisher
             // 
-            this.tabPublisher.Controls.Add(this.splitContainer1);
+            this.tabPublisher.Controls.Add(this.spcPublisher);
             this.tabPublisher.Location = new System.Drawing.Point(4, 22);
             this.tabPublisher.Name = "tabPublisher";
             this.tabPublisher.Padding = new System.Windows.Forms.Padding(3);
@@ -89,22 +113,22 @@
             this.tabPublisher.Text = "Izdavač";
             this.tabPublisher.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // spcPublisher
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
+            this.spcPublisher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcPublisher.Location = new System.Drawing.Point(3, 3);
+            this.spcPublisher.Name = "spcPublisher";
             // 
-            // splitContainer1.Panel1
+            // spcPublisher.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.grpPublisher);
+            this.spcPublisher.Panel1.Controls.Add(this.grpPublisher);
             // 
-            // splitContainer1.Panel2
+            // spcPublisher.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.grpPublisherPreview);
-            this.splitContainer1.Size = new System.Drawing.Size(846, 372);
-            this.splitContainer1.SplitterDistance = 281;
-            this.splitContainer1.TabIndex = 0;
+            this.spcPublisher.Panel2.Controls.Add(this.grpPublisherPreview);
+            this.spcPublisher.Size = new System.Drawing.Size(846, 372);
+            this.spcPublisher.SplitterDistance = 281;
+            this.spcPublisher.TabIndex = 0;
             // 
             // grpPublisher
             // 
@@ -293,6 +317,7 @@
             // 
             // tabType
             // 
+            this.tabType.Controls.Add(this.spcType);
             this.tabType.Location = new System.Drawing.Point(4, 22);
             this.tabType.Name = "tabType";
             this.tabType.Padding = new System.Windows.Forms.Padding(3);
@@ -300,6 +325,162 @@
             this.tabType.TabIndex = 1;
             this.tabType.Text = "Tip";
             this.tabType.UseVisualStyleBackColor = true;
+            // 
+            // spcType
+            // 
+            this.spcType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcType.Location = new System.Drawing.Point(3, 3);
+            this.spcType.Name = "spcType";
+            // 
+            // spcType.Panel1
+            // 
+            this.spcType.Panel1.Controls.Add(this.grpTypeEdit);
+            // 
+            // spcType.Panel2
+            // 
+            this.spcType.Panel2.Controls.Add(this.grpTypePreview);
+            this.spcType.Size = new System.Drawing.Size(846, 372);
+            this.spcType.SplitterDistance = 282;
+            this.spcType.TabIndex = 0;
+            // 
+            // grpTypeEdit
+            // 
+            this.grpTypeEdit.Controls.Add(this.btnAddType);
+            this.grpTypeEdit.Controls.Add(this.btnEditType);
+            this.grpTypeEdit.Controls.Add(this.btnRemoveType);
+            this.grpTypeEdit.Controls.Add(this.lblTypeDesc);
+            this.grpTypeEdit.Controls.Add(this.txtTypeDesc);
+            this.grpTypeEdit.Controls.Add(this.txtTypeName);
+            this.grpTypeEdit.Controls.Add(this.lblTypeName);
+            this.grpTypeEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpTypeEdit.Location = new System.Drawing.Point(0, 0);
+            this.grpTypeEdit.Name = "grpTypeEdit";
+            this.grpTypeEdit.Size = new System.Drawing.Size(282, 372);
+            this.grpTypeEdit.TabIndex = 0;
+            this.grpTypeEdit.TabStop = false;
+            this.grpTypeEdit.Text = "Uredi";
+            // 
+            // btnAddType
+            // 
+            this.btnAddType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddType.Location = new System.Drawing.Point(39, 321);
+            this.btnAddType.Name = "btnAddType";
+            this.btnAddType.Size = new System.Drawing.Size(75, 45);
+            this.btnAddType.TabIndex = 28;
+            this.btnAddType.Text = "Dodaj";
+            this.btnAddType.UseVisualStyleBackColor = true;
+            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
+            // 
+            // btnEditType
+            // 
+            this.btnEditType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditType.Location = new System.Drawing.Point(120, 321);
+            this.btnEditType.Name = "btnEditType";
+            this.btnEditType.Size = new System.Drawing.Size(75, 45);
+            this.btnEditType.TabIndex = 27;
+            this.btnEditType.Text = "Uredi";
+            this.btnEditType.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveType
+            // 
+            this.btnRemoveType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveType.Location = new System.Drawing.Point(201, 321);
+            this.btnRemoveType.Name = "btnRemoveType";
+            this.btnRemoveType.Size = new System.Drawing.Size(75, 45);
+            this.btnRemoveType.TabIndex = 26;
+            this.btnRemoveType.Text = "Obriši";
+            this.btnRemoveType.UseVisualStyleBackColor = true;
+            // 
+            // lblTypeDesc
+            // 
+            this.lblTypeDesc.AutoSize = true;
+            this.lblTypeDesc.Location = new System.Drawing.Point(8, 45);
+            this.lblTypeDesc.Name = "lblTypeDesc";
+            this.lblTypeDesc.Size = new System.Drawing.Size(28, 13);
+            this.lblTypeDesc.TabIndex = 10;
+            this.lblTypeDesc.Text = "Opis";
+            // 
+            // txtTypeDesc
+            // 
+            this.txtTypeDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTypeDesc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "description", true));
+            this.txtTypeDesc.Location = new System.Drawing.Point(91, 42);
+            this.txtTypeDesc.Multiline = true;
+            this.txtTypeDesc.Name = "txtTypeDesc";
+            this.txtTypeDesc.Size = new System.Drawing.Size(185, 20);
+            this.txtTypeDesc.TabIndex = 9;
+            // 
+            // typeBS
+            // 
+            this.typeBS.DataMember = "type";
+            this.typeBS.DataSource = this.librarianDS;
+            // 
+            // txtTypeName
+            // 
+            this.txtTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTypeName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "name", true));
+            this.txtTypeName.Location = new System.Drawing.Point(91, 16);
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.Size = new System.Drawing.Size(185, 20);
+            this.txtTypeName.TabIndex = 8;
+            // 
+            // lblTypeName
+            // 
+            this.lblTypeName.AutoSize = true;
+            this.lblTypeName.Location = new System.Drawing.Point(8, 19);
+            this.lblTypeName.Name = "lblTypeName";
+            this.lblTypeName.Size = new System.Drawing.Size(34, 13);
+            this.lblTypeName.TabIndex = 7;
+            this.lblTypeName.Text = "Naziv";
+            // 
+            // grpTypePreview
+            // 
+            this.grpTypePreview.Controls.Add(this.dgvType);
+            this.grpTypePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpTypePreview.Location = new System.Drawing.Point(0, 0);
+            this.grpTypePreview.Name = "grpTypePreview";
+            this.grpTypePreview.Size = new System.Drawing.Size(560, 372);
+            this.grpTypePreview.TabIndex = 0;
+            this.grpTypePreview.TabStop = false;
+            this.grpTypePreview.Text = "Prikaz";
+            // 
+            // dgvType
+            // 
+            this.dgvType.AllowUserToAddRows = false;
+            this.dgvType.AllowUserToDeleteRows = false;
+            this.dgvType.AutoGenerateColumns = false;
+            this.dgvType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvType.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvType.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTxtTypeName,
+            this.dgvTxtTypeDesc});
+            this.dgvType.DataSource = this.typeBS;
+            this.dgvType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvType.Location = new System.Drawing.Point(3, 16);
+            this.dgvType.Name = "dgvType";
+            this.dgvType.ReadOnly = true;
+            this.dgvType.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvType.Size = new System.Drawing.Size(554, 353);
+            this.dgvType.TabIndex = 0;
+            // 
+            // dgvTxtTypeName
+            // 
+            this.dgvTxtTypeName.DataPropertyName = "name";
+            this.dgvTxtTypeName.HeaderText = "Naziv";
+            this.dgvTxtTypeName.Name = "dgvTxtTypeName";
+            this.dgvTxtTypeName.ReadOnly = true;
+            // 
+            // dgvTxtTypeDesc
+            // 
+            this.dgvTxtTypeDesc.DataPropertyName = "description";
+            this.dgvTxtTypeDesc.HeaderText = "Opis";
+            this.dgvTxtTypeDesc.Name = "dgvTxtTypeDesc";
+            this.dgvTxtTypeDesc.ReadOnly = true;
             // 
             // tabCategory
             // 
@@ -314,36 +495,50 @@
             // 
             this.publisherTA.ClearBeforeFill = true;
             // 
+            // typeTA
+            // 
+            this.typeTA.ClearBeforeFill = true;
+            // 
             // frmTPCEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 404);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbcTPC);
             this.Name = "frmTPCEdit";
             this.Text = "Uredi";
             this.Load += new System.EventHandler(this.frmTPCEdit_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tbcTPC.ResumeLayout(false);
             this.tabPublisher.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.spcPublisher.Panel1.ResumeLayout(false);
+            this.spcPublisher.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcPublisher)).EndInit();
+            this.spcPublisher.ResumeLayout(false);
             this.grpPublisher.ResumeLayout(false);
             this.grpPublisher.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarianDS)).EndInit();
             this.grpPublisherPreview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPublisher)).EndInit();
+            this.tabType.ResumeLayout(false);
+            this.spcType.Panel1.ResumeLayout(false);
+            this.spcType.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcType)).EndInit();
+            this.spcType.ResumeLayout(false);
+            this.grpTypeEdit.ResumeLayout(false);
+            this.grpTypeEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
+            this.grpTypePreview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvType)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbcTPC;
         private System.Windows.Forms.TabPage tabPublisher;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer spcPublisher;
         private System.Windows.Forms.TabPage tabType;
         private System.Windows.Forms.TabPage tabCategory;
         private System.Windows.Forms.DataGridView dgvPublisher;
@@ -367,5 +562,20 @@
         private System.Windows.Forms.Button btnAddPublisher;
         private System.Windows.Forms.Button btnEditPublisher;
         private System.Windows.Forms.Button btnRemovePublisher;
+        private System.Windows.Forms.SplitContainer spcType;
+        private System.Windows.Forms.GroupBox grpTypeEdit;
+        private System.Windows.Forms.GroupBox grpTypePreview;
+        private System.Windows.Forms.DataGridView dgvType;
+        private System.Windows.Forms.BindingSource typeBS;
+        private LibrarianDSTableAdapters.typeTA typeTA;
+        private System.Windows.Forms.Label lblTypeDesc;
+        private System.Windows.Forms.TextBox txtTypeDesc;
+        private System.Windows.Forms.TextBox txtTypeName;
+        private System.Windows.Forms.Label lblTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtTypeDesc;
+        private System.Windows.Forms.Button btnAddType;
+        private System.Windows.Forms.Button btnEditType;
+        private System.Windows.Forms.Button btnRemoveType;
     }
 }

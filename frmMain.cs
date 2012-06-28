@@ -148,15 +148,30 @@ namespace Library
             }
         }
 
-        private void tsmPublisher_Click(object sender, EventArgs e)
+        public void tsmPublisher_Click(object sender, EventArgs e)
+        {
+            openTPC(0);
+        }
+
+        public void openTPC(int tabPage)
         {
             if (!focusForm("frmTPCEdit"))
             {
-                frmTPCEdit FrmTPCEdit = new frmTPCEdit();
+                frmTPCEdit FrmTPCEdit = new frmTPCEdit(tabPage);
                 FrmTPCEdit.MdiParent = this;
                 FrmTPCEdit.StartPosition = FormStartPosition.CenterParent;
                 FrmTPCEdit.Show();
             }
+        }
+
+        public void tsmCategory_Click(object sender, EventArgs e)
+        {
+            openTPC(2);
+        }
+
+        private void tsmType_Click(object sender, EventArgs e)
+        {
+            openTPC(1);
         }
     }
 }
