@@ -173,5 +173,13 @@ namespace Library
         {
             openTPC(1);
         }
+
+        private void tsiHelpAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout FrmAbout = new frmAbout();
+            FrmAbout.MdiParent = this;
+            FrmAbout.StartPosition = FormStartPosition.CenterScreen;
+            FrmAbout.Show();
+        }
     }
 }

@@ -217,8 +217,9 @@
             // tsiHelpAbout
             // 
             this.tsiHelpAbout.Name = "tsiHelpAbout";
-            this.tsiHelpAbout.Size = new System.Drawing.Size(139, 22);
+            this.tsiHelpAbout.Size = new System.Drawing.Size(152, 22);
             this.tsiHelpAbout.Text = "O programu";
+            this.tsiHelpAbout.Click += new System.EventHandler(this.tsiHelpAbout_Click);
             // 
             // tmrClearStatus
             // 
