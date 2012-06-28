@@ -124,7 +124,14 @@ namespace Library
             //If form is called for rent - rent book
             if (btnRent.Text == "Zaduži")
             {
-                RentBook();
+                if (this.rentTA.BookRent(bookRow.id) < bookRow.stock)
+                {
+                    RentBook();
+                }
+                else
+                {
+                    ((frmMain)this.MdiParent).WriteToStatus("Sve su knjige zadužene", 3000);
+                }
             }
             else
             {
