@@ -68,6 +68,22 @@
             this.tabCategory = new System.Windows.Forms.TabPage();
             this.publisherTA = new Library.LibrarianDSTableAdapters.publisherTA();
             this.typeTA = new Library.LibrarianDSTableAdapters.typeTA();
+            this.spcCategory = new System.Windows.Forms.SplitContainer();
+            this.grpCategoryEdit = new System.Windows.Forms.GroupBox();
+            this.grpCategoryPreview = new System.Windows.Forms.GroupBox();
+            this.dgvCategory = new System.Windows.Forms.DataGridView();
+            this.categoryBS = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTA = new Library.LibrarianDSTableAdapters.categoryTA();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtCategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtCategoryDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCategoryDesc = new System.Windows.Forms.Label();
+            this.txtCategoryDesc = new System.Windows.Forms.TextBox();
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
+            this.lblCategoryName = new System.Windows.Forms.Label();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnEditCategory = new System.Windows.Forms.Button();
+            this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.tbcTPC.SuspendLayout();
             this.tabPublisher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPublisher)).BeginInit();
@@ -88,6 +104,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeBS)).BeginInit();
             this.grpTypePreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvType)).BeginInit();
+            this.tabCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcCategory)).BeginInit();
+            this.spcCategory.Panel2.SuspendLayout();
+            this.spcCategory.SuspendLayout();
+            this.grpCategoryEdit.SuspendLayout();
+            this.grpCategoryPreview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcTPC
@@ -185,7 +209,7 @@
             // lblPublisherWeb
             // 
             this.lblPublisherWeb.AutoSize = true;
-            this.lblPublisherWeb.Location = new System.Drawing.Point(7, 72);
+            this.lblPublisherWeb.Location = new System.Drawing.Point(6, 72);
             this.lblPublisherWeb.Name = "lblPublisherWeb";
             this.lblPublisherWeb.Size = new System.Drawing.Size(30, 13);
             this.lblPublisherWeb.TabIndex = 7;
@@ -194,7 +218,7 @@
             // lblPublisherDesc
             // 
             this.lblPublisherDesc.AutoSize = true;
-            this.lblPublisherDesc.Location = new System.Drawing.Point(7, 46);
+            this.lblPublisherDesc.Location = new System.Drawing.Point(6, 46);
             this.lblPublisherDesc.Name = "lblPublisherDesc";
             this.lblPublisherDesc.Size = new System.Drawing.Size(28, 13);
             this.lblPublisherDesc.TabIndex = 6;
@@ -208,7 +232,7 @@
             this.txtPublisherWeb.Location = new System.Drawing.Point(90, 69);
             this.txtPublisherWeb.Multiline = true;
             this.txtPublisherWeb.Name = "txtPublisherWeb";
-            this.txtPublisherWeb.Size = new System.Drawing.Size(185, 20);
+            this.txtPublisherWeb.Size = new System.Drawing.Size(184, 20);
             this.txtPublisherWeb.TabIndex = 5;
             // 
             // publisherBS
@@ -229,7 +253,7 @@
             this.txtPublisherDesc.Location = new System.Drawing.Point(90, 43);
             this.txtPublisherDesc.Multiline = true;
             this.txtPublisherDesc.Name = "txtPublisherDesc";
-            this.txtPublisherDesc.Size = new System.Drawing.Size(185, 20);
+            this.txtPublisherDesc.Size = new System.Drawing.Size(184, 20);
             this.txtPublisherDesc.TabIndex = 3;
             // 
             // txtPublisherName
@@ -239,13 +263,13 @@
             this.txtPublisherName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.publisherBS, "name", true));
             this.txtPublisherName.Location = new System.Drawing.Point(90, 17);
             this.txtPublisherName.Name = "txtPublisherName";
-            this.txtPublisherName.Size = new System.Drawing.Size(185, 20);
+            this.txtPublisherName.Size = new System.Drawing.Size(184, 20);
             this.txtPublisherName.TabIndex = 1;
             // 
             // lblPublisherName
             // 
             this.lblPublisherName.AutoSize = true;
-            this.lblPublisherName.Location = new System.Drawing.Point(7, 20);
+            this.lblPublisherName.Location = new System.Drawing.Point(6, 20);
             this.lblPublisherName.Name = "lblPublisherName";
             this.lblPublisherName.Size = new System.Drawing.Size(34, 13);
             this.lblPublisherName.TabIndex = 0;
@@ -283,6 +307,7 @@
             this.dgvPublisher.Name = "dgvPublisher";
             this.dgvPublisher.ReadOnly = true;
             this.dgvPublisher.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPublisher.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPublisher.Size = new System.Drawing.Size(555, 353);
             this.dgvPublisher.TabIndex = 0;
             // 
@@ -340,7 +365,7 @@
             // 
             this.spcType.Panel2.Controls.Add(this.grpTypePreview);
             this.spcType.Size = new System.Drawing.Size(846, 372);
-            this.spcType.SplitterDistance = 282;
+            this.spcType.SplitterDistance = 281;
             this.spcType.TabIndex = 0;
             // 
             // grpTypeEdit
@@ -355,7 +380,7 @@
             this.grpTypeEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpTypeEdit.Location = new System.Drawing.Point(0, 0);
             this.grpTypeEdit.Name = "grpTypeEdit";
-            this.grpTypeEdit.Size = new System.Drawing.Size(282, 372);
+            this.grpTypeEdit.Size = new System.Drawing.Size(281, 372);
             this.grpTypeEdit.TabIndex = 0;
             this.grpTypeEdit.TabStop = false;
             this.grpTypeEdit.Text = "Uredi";
@@ -363,7 +388,7 @@
             // btnAddType
             // 
             this.btnAddType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddType.Location = new System.Drawing.Point(39, 321);
+            this.btnAddType.Location = new System.Drawing.Point(38, 321);
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Size = new System.Drawing.Size(75, 45);
             this.btnAddType.TabIndex = 28;
@@ -374,27 +399,29 @@
             // btnEditType
             // 
             this.btnEditType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditType.Location = new System.Drawing.Point(120, 321);
+            this.btnEditType.Location = new System.Drawing.Point(119, 321);
             this.btnEditType.Name = "btnEditType";
             this.btnEditType.Size = new System.Drawing.Size(75, 45);
             this.btnEditType.TabIndex = 27;
             this.btnEditType.Text = "Uredi";
             this.btnEditType.UseVisualStyleBackColor = true;
+            this.btnEditType.Click += new System.EventHandler(this.btnEditType_Click);
             // 
             // btnRemoveType
             // 
             this.btnRemoveType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveType.Location = new System.Drawing.Point(201, 321);
+            this.btnRemoveType.Location = new System.Drawing.Point(200, 321);
             this.btnRemoveType.Name = "btnRemoveType";
             this.btnRemoveType.Size = new System.Drawing.Size(75, 45);
             this.btnRemoveType.TabIndex = 26;
             this.btnRemoveType.Text = "Obriši";
             this.btnRemoveType.UseVisualStyleBackColor = true;
+            this.btnRemoveType.Click += new System.EventHandler(this.btnRemoveType_Click);
             // 
             // lblTypeDesc
             // 
             this.lblTypeDesc.AutoSize = true;
-            this.lblTypeDesc.Location = new System.Drawing.Point(8, 45);
+            this.lblTypeDesc.Location = new System.Drawing.Point(6, 46);
             this.lblTypeDesc.Name = "lblTypeDesc";
             this.lblTypeDesc.Size = new System.Drawing.Size(28, 13);
             this.lblTypeDesc.TabIndex = 10;
@@ -405,10 +432,10 @@
             this.txtTypeDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTypeDesc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "description", true));
-            this.txtTypeDesc.Location = new System.Drawing.Point(91, 42);
+            this.txtTypeDesc.Location = new System.Drawing.Point(90, 43);
             this.txtTypeDesc.Multiline = true;
             this.txtTypeDesc.Name = "txtTypeDesc";
-            this.txtTypeDesc.Size = new System.Drawing.Size(185, 20);
+            this.txtTypeDesc.Size = new System.Drawing.Size(184, 20);
             this.txtTypeDesc.TabIndex = 9;
             // 
             // typeBS
@@ -421,15 +448,15 @@
             this.txtTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTypeName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBS, "name", true));
-            this.txtTypeName.Location = new System.Drawing.Point(91, 16);
+            this.txtTypeName.Location = new System.Drawing.Point(90, 17);
             this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(185, 20);
+            this.txtTypeName.Size = new System.Drawing.Size(184, 20);
             this.txtTypeName.TabIndex = 8;
             // 
             // lblTypeName
             // 
             this.lblTypeName.AutoSize = true;
-            this.lblTypeName.Location = new System.Drawing.Point(8, 19);
+            this.lblTypeName.Location = new System.Drawing.Point(6, 20);
             this.lblTypeName.Name = "lblTypeName";
             this.lblTypeName.Size = new System.Drawing.Size(34, 13);
             this.lblTypeName.TabIndex = 7;
@@ -441,7 +468,7 @@
             this.grpTypePreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpTypePreview.Location = new System.Drawing.Point(0, 0);
             this.grpTypePreview.Name = "grpTypePreview";
-            this.grpTypePreview.Size = new System.Drawing.Size(560, 372);
+            this.grpTypePreview.Size = new System.Drawing.Size(561, 372);
             this.grpTypePreview.TabIndex = 0;
             this.grpTypePreview.TabStop = false;
             this.grpTypePreview.Text = "Prikaz";
@@ -465,7 +492,8 @@
             this.dgvType.Name = "dgvType";
             this.dgvType.ReadOnly = true;
             this.dgvType.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvType.Size = new System.Drawing.Size(554, 353);
+            this.dgvType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvType.Size = new System.Drawing.Size(555, 353);
             this.dgvType.TabIndex = 0;
             // 
             // dgvTxtTypeName
@@ -484,6 +512,8 @@
             // 
             // tabCategory
             // 
+            this.tabCategory.Controls.Add(this.grpCategoryEdit);
+            this.tabCategory.Controls.Add(this.spcCategory);
             this.tabCategory.Location = new System.Drawing.Point(4, 22);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.Size = new System.Drawing.Size(852, 378);
@@ -499,12 +529,177 @@
             // 
             this.typeTA.ClearBeforeFill = true;
             // 
+            // spcCategory
+            // 
+            this.spcCategory.Location = new System.Drawing.Point(3, 0);
+            this.spcCategory.Name = "spcCategory";
+            // 
+            // spcCategory.Panel2
+            // 
+            this.spcCategory.Panel2.Controls.Add(this.grpCategoryPreview);
+            this.spcCategory.Size = new System.Drawing.Size(846, 372);
+            this.spcCategory.SplitterDistance = 281;
+            this.spcCategory.TabIndex = 0;
+            // 
+            // grpCategoryEdit
+            // 
+            this.grpCategoryEdit.Controls.Add(this.btnAddCategory);
+            this.grpCategoryEdit.Controls.Add(this.btnEditCategory);
+            this.grpCategoryEdit.Controls.Add(this.btnRemoveCategory);
+            this.grpCategoryEdit.Controls.Add(this.lblCategoryDesc);
+            this.grpCategoryEdit.Controls.Add(this.txtCategoryDesc);
+            this.grpCategoryEdit.Controls.Add(this.txtCategoryName);
+            this.grpCategoryEdit.Controls.Add(this.lblCategoryName);
+            this.grpCategoryEdit.Location = new System.Drawing.Point(3, 3);
+            this.grpCategoryEdit.Name = "grpCategoryEdit";
+            this.grpCategoryEdit.Size = new System.Drawing.Size(281, 372);
+            this.grpCategoryEdit.TabIndex = 0;
+            this.grpCategoryEdit.TabStop = false;
+            this.grpCategoryEdit.Text = "Uredi";
+            // 
+            // grpCategoryPreview
+            // 
+            this.grpCategoryPreview.Controls.Add(this.dgvCategory);
+            this.grpCategoryPreview.Location = new System.Drawing.Point(0, 3);
+            this.grpCategoryPreview.Name = "grpCategoryPreview";
+            this.grpCategoryPreview.Size = new System.Drawing.Size(561, 372);
+            this.grpCategoryPreview.TabIndex = 0;
+            this.grpCategoryPreview.TabStop = false;
+            this.grpCategoryPreview.Text = "Prikaz";
+            // 
+            // dgvCategory
+            // 
+            this.dgvCategory.AllowUserToAddRows = false;
+            this.dgvCategory.AllowUserToDeleteRows = false;
+            this.dgvCategory.AutoGenerateColumns = false;
+            this.dgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.dgvTxtCategoryId,
+            this.dgvTxtCategoryDesc});
+            this.dgvCategory.DataSource = this.categoryBS;
+            this.dgvCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCategory.Location = new System.Drawing.Point(3, 16);
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.ReadOnly = true;
+            this.dgvCategory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCategory.Size = new System.Drawing.Size(555, 353);
+            this.dgvCategory.TabIndex = 0;
+            // 
+            // categoryBS
+            // 
+            this.categoryBS.DataMember = "category";
+            this.categoryBS.DataSource = this.librarianDS;
+            // 
+            // categoryTA
+            // 
+            this.categoryTA.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dgvTxtCategoryId
+            // 
+            this.dgvTxtCategoryId.DataPropertyName = "name";
+            this.dgvTxtCategoryId.HeaderText = "Naziv";
+            this.dgvTxtCategoryId.Name = "dgvTxtCategoryId";
+            this.dgvTxtCategoryId.ReadOnly = true;
+            // 
+            // dgvTxtCategoryDesc
+            // 
+            this.dgvTxtCategoryDesc.DataPropertyName = "description";
+            this.dgvTxtCategoryDesc.HeaderText = "Opis";
+            this.dgvTxtCategoryDesc.Name = "dgvTxtCategoryDesc";
+            this.dgvTxtCategoryDesc.ReadOnly = true;
+            // 
+            // lblCategoryDesc
+            // 
+            this.lblCategoryDesc.AutoSize = true;
+            this.lblCategoryDesc.Location = new System.Drawing.Point(6, 46);
+            this.lblCategoryDesc.Name = "lblCategoryDesc";
+            this.lblCategoryDesc.Size = new System.Drawing.Size(28, 13);
+            this.lblCategoryDesc.TabIndex = 14;
+            this.lblCategoryDesc.Text = "Opis";
+            // 
+            // txtCategoryDesc
+            // 
+            this.txtCategoryDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCategoryDesc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBS, "description", true));
+            this.txtCategoryDesc.Location = new System.Drawing.Point(90, 43);
+            this.txtCategoryDesc.Multiline = true;
+            this.txtCategoryDesc.Name = "txtCategoryDesc";
+            this.txtCategoryDesc.Size = new System.Drawing.Size(184, 20);
+            this.txtCategoryDesc.TabIndex = 13;
+            // 
+            // txtCategoryName
+            // 
+            this.txtCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCategoryName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBS, "name", true));
+            this.txtCategoryName.Location = new System.Drawing.Point(90, 17);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(184, 20);
+            this.txtCategoryName.TabIndex = 12;
+            // 
+            // lblCategoryName
+            // 
+            this.lblCategoryName.AutoSize = true;
+            this.lblCategoryName.Location = new System.Drawing.Point(6, 20);
+            this.lblCategoryName.Name = "lblCategoryName";
+            this.lblCategoryName.Size = new System.Drawing.Size(34, 13);
+            this.lblCategoryName.TabIndex = 11;
+            this.lblCategoryName.Text = "Naziv";
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddCategory.Location = new System.Drawing.Point(37, 321);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(75, 45);
+            this.btnAddCategory.TabIndex = 28;
+            this.btnAddCategory.Text = "Dodaj";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditCategory.Location = new System.Drawing.Point(118, 321);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(75, 45);
+            this.btnEditCategory.TabIndex = 27;
+            this.btnEditCategory.Text = "Uredi";
+            this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
+            // 
+            // btnRemoveCategory
+            // 
+            this.btnRemoveCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveCategory.Location = new System.Drawing.Point(199, 321);
+            this.btnRemoveCategory.Name = "btnRemoveCategory";
+            this.btnRemoveCategory.Size = new System.Drawing.Size(75, 45);
+            this.btnRemoveCategory.TabIndex = 26;
+            this.btnRemoveCategory.Text = "Obriši";
+            this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
+            // 
             // frmTPCEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 404);
             this.Controls.Add(this.tbcTPC);
+            this.MinimumSize = new System.Drawing.Size(876, 442);
             this.Name = "frmTPCEdit";
             this.Text = "Uredi";
             this.Load += new System.EventHandler(this.frmTPCEdit_Load);
@@ -530,6 +725,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeBS)).EndInit();
             this.grpTypePreview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvType)).EndInit();
+            this.tabCategory.ResumeLayout(false);
+            this.spcCategory.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcCategory)).EndInit();
+            this.spcCategory.ResumeLayout(false);
+            this.grpCategoryEdit.ResumeLayout(false);
+            this.grpCategoryEdit.PerformLayout();
+            this.grpCategoryPreview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,5 +781,21 @@
         private System.Windows.Forms.Button btnAddType;
         private System.Windows.Forms.Button btnEditType;
         private System.Windows.Forms.Button btnRemoveType;
+        private System.Windows.Forms.SplitContainer spcCategory;
+        private System.Windows.Forms.GroupBox grpCategoryEdit;
+        private System.Windows.Forms.GroupBox grpCategoryPreview;
+        private System.Windows.Forms.DataGridView dgvCategory;
+        private System.Windows.Forms.BindingSource categoryBS;
+        private LibrarianDSTableAdapters.categoryTA categoryTA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtCategoryId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtCategoryDesc;
+        private System.Windows.Forms.Label lblCategoryDesc;
+        private System.Windows.Forms.TextBox txtCategoryDesc;
+        private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.Label lblCategoryName;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnEditCategory;
+        private System.Windows.Forms.Button btnRemoveCategory;
     }
 }

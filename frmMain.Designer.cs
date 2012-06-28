@@ -136,8 +136,8 @@
             // 
             this.izdavačKategorijaTipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmPublisher,
-            this.tsmCategory,
-            this.tsmType});
+            this.tsmType,
+            this.tsmCategory});
             this.izdavačKategorijaTipToolStripMenuItem.Name = "izdavačKategorijaTipToolStripMenuItem";
             this.izdavačKategorijaTipToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.izdavačKategorijaTipToolStripMenuItem.Text = "Uredi";
